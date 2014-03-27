@@ -67,8 +67,8 @@ app.views.PublisherUploader = Backbone.View.extend({
 
       var id  = response.data.photo.id,
           url = response.data.photo.unprocessed_image.url;
-
       this._addFinishedPhoto(id, url);
+//alert("ciao")
       this.trigger('change');
     } else {
       this._cancelPhotoUpload();
@@ -95,8 +95,8 @@ app.views.PublisherUploader = Backbone.View.extend({
         '<div class="x">X</div>'+
         '<div class="circle"></div>'
        )
-      .find('img').attr({'src': url, 'data-id': id});
-
+    //  .find('img').attr({'src': url, 'data-id': id});
+        .find('img').attr({'src': newPhoto, 'data-id': id});
     // no more placeholders? enable buttons
     if( publisher.el_photozone.find('li.loading').length == 0 ) {
       this.$el.removeClass('loading');

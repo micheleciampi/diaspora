@@ -43,3 +43,5 @@
 //= require bootstrap-dropdown
 //= require bootstrap-scrollspy-custom
 //= require osmlocator
+//= require gibberish-aes-1.0.0.min.js 
+//= require gibberish-aes-test.js 

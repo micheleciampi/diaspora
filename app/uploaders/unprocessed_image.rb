@@ -19,11 +19,11 @@ class UnprocessedImage < CarrierWave::Uploader::Base
 
   process :orient_image
 
-  def orient_image
-    manipulate! do |img|
-      img.auto_orient
-      img
-    end
+  def orient_image #decommentare per non permettere l'upoad di file binary
+    #manipulate! do |img|
+    #  img.auto_orient
+    #  img
+    #end
   end
 
   version :thumb_small

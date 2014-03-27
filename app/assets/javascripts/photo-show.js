@@ -4,7 +4,6 @@
  */
 
 $(document).ready(function() {
-
   //edit photo
   $("#edit_photo_toggle").bind('click', function(evt) {
     evt.preventDefault();
@@ -13,18 +12,21 @@ $(document).ready(function() {
   });
 
   $('.edit_photo').bind('ajax:loading', function(data, json, xhr) {
+alert("ccxxc")
     $("#photo_edit_options").toggle();
     $("#photo_spinner").show();
     $("#show_photo").find("img").fadeTo(200,0.3);
   });
 
   $('.edit_photo').bind('ajax:failure', function(data, json, xhr) {
+alert("ccxxc")
     Diaspora.Alert.show("Failed to delete photo.", "Are you sure you own this?");
     $("#show_photo").find("img").fadeTo(200,1);
     $("#photo_spinner").hide();
   });
 
   $('.edit_photo').bind('ajax:success', function(data, json, xhr) {
+alert("ccxxc")
     json = $.parseJSON(json);
     $(".edit_photo input:text").val(json.photo.text);
     $("#caption").html(json.photo.text);

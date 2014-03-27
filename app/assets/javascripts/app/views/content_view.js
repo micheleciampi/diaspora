@@ -1,3 +1,12 @@
+function decrypt(url)
+{
+	$.get(url, function(data) 
+	{
+		stringa = GibberishAES.dec(data, "ciao");
+		immagine="data:image/jpg;base64,"+stringa
+        });
+	return immagine
+}
 app.views.Content = app.views.Base.extend({
   events: {
     "click .expander": "expandPost"
@@ -14,13 +23,50 @@ app.views.Content = app.views.Base.extend({
 
 
   largePhoto : function() {
+//alert(this.model.get("text"))
+jQuery.ajaxSetup({async:false});
     var photos = this.model.get("photos")
+    for(var i=0;i<photos.length;i++)
+    {
+	if(photos[i].sizes.small.substring(0,4)=="http")
+	{
+		photos[i].sizes.small=decrypt(photos[i].sizes.small)
+	}
+	if(photos[i].sizes.medium.substring(0,4)=="http")
+	{
+		photos[i].sizes.medium=decrypt(photos[i].sizes.medium)
+	}
+	if(photos[i].sizes.large.substring(0,4)=="http")
+	{
+		photos[i].sizes.large=decrypt(photos[i].sizes.large)
+	}
+    }
+    jQuery.ajaxSetup({async:true});
     if(!photos || photos.length == 0) { return }
+
     return photos[0]
   },
 
   smallPhotos : function() {
+jQuery.ajaxSetup({async:false});
     var photos = this.model.get("photos")
+    for(var i=0;i<photos.length;i++)
+    {
+        if(photos[i].sizes.small.substring(0,4)=="http")
+        {
+                photos[i].sizes.small=decrypt(photos[i].sizes.small)
+        }
+        if(photos[i].sizes.medium.substring(0,4)=="http")
+        {
+                photos[i].sizes.medium=decrypt(photos[i].sizes.medium)
+        }
+        if(photos[i].sizes.large.substring(0,4)=="http")
+        {
+                photos[i].sizes.large=decrypt(photos[i].sizes.large)
+        }
+    }
+    
+    jQuery.ajaxSetup({async:true});
     if(!photos || photos.length < 2) { return }
     return photos.slice(1,8)
   },

@@ -44,11 +44,12 @@ class StatusMessagesController < ApplicationController
     params[:status_message][:aspect_ids] = [*params[:aspect_ids]]
     normalize_public_flag!
     services = [*params[:services]].compact
-
+#params[:status_message][:text]="hello_master" ogni post diventera' "hello master"
+# FEDERATION_LOGGER.info("ciao_logger")
     @status_message = current_user.build_post(:status_message, params[:status_message])
     @status_message.build_location(:address => params[:location_address], :coordinates => params[:location_coords]) if params[:location_address].present?
     @status_message.attach_photos_by_ids(params[:photos])
-
+	 
     if @status_message.save
       aspects = current_user.aspects_from_ids(destination_aspect_ids)
       current_user.add_to_streams(@status_message, aspects)
@@ -58,6 +59,13 @@ class StatusMessagesController < ApplicationController
 
       #this is done implicitly, somewhere else, but it doesnt work, says max. :'(
       @status_message.photos.each do |photo|
+FEDERATION_LOGGER.info("foto_post "+photo.remote_photo_path);
+localPath = "/home/diaspora/diaspora/public/uploads/images/";
+#	 crypt(localPath+"scaled_full_"+photo.remote_photo_name);
+#         crypt(localPath+"thumb_large_"+photo.remote_photo_name);
+#         crypt(localPath+"thumb_small_"+photo.remote_photo_name);
+#         crypt(localPath+"thumb_medium_"+photo.remote_photo_name);
+#         crypt(localPath+photo.remote_photo_name);
         current_user.dispatch_post(photo)
       end
 
@@ -115,4 +123,23 @@ class StatusMessagesController < ApplicationController
   def remove_getting_started
     current_user.disable_getting_started
   end
+
+def crypt(image_name)
+
+                string=''
+#               Leggo il file da cifrare
+                f=File.open image_name, "rb" do |mio_file|
+                   string+=mio_file.read
+                end
+		string=Base64.encode64(string)
+		cipher = Gibberish::AES.new("ciao")
+		encrypted_data = cipher.enc(string)
+
+#               scrivo i dati cifrati
+        File.open image_name, "wb" do |mio_file|
+                mio_file.puts encrypted_data
+                end
+FEDERATION_LOGGER.info("nome_file"+image_name);
+
+end
 end

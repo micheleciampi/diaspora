@@ -45,7 +45,6 @@ app.views.StreamPost = app.views.Post.extend({
   postContentView: function(){
     var normalizedClass = this.model.get("post_type").replace(/::/, "__")
       , postClass = app.views[normalizedClass] || app.views.StatusMessage;
-
     return new postClass({ model : this.model })
   },
 

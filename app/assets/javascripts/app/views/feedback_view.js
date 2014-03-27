@@ -18,7 +18,6 @@ app.views.Feedback = app.views.Base.extend({
 
   presenter : function() {
     var interactions = this.model.interactions
-
     return _.extend(this.defaultPresenter(),{
       commentsCount : interactions.commentsCount(),
       likesCount : interactions.likesCount(),

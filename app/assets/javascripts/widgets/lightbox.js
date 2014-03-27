@@ -3,8 +3,9 @@
  *   the COPYRIGHT file.
  */
 
-
+  
 jQuery.fn.center = (function() {
+
   var $window = $(window);
   return function () {
     this.css({
@@ -36,7 +37,8 @@ jQuery.fn.center = (function() {
         window: $(window)
       });
 
-      //self.post.delegate("a.stream-photo-link", "click", self.lightboxImageClicked);
+      //self.post.delegate("a.stream-photo-link", "click", self.lightboximageclicked);
+      //buz=self.imageset.find("img").first();
       self.imageset.delegate("img", "click", self.imagesetImageClicked);
 
       self.window.resize(function() {
