@@ -27,7 +27,6 @@
        },
 
        onSubmit: function(id, fileName){
-         alert("sac");/////////////////////////////////saluta
         $('#file-upload').addClass("loading");
         $('#publisher').find("input[type='submit']").attr('disabled','disabled');
         $('#publisher').find("button.post_preview_button").attr('disabled','disabled');
@@ -45,7 +44,6 @@
         var id = responseJSON.data.photo.id,
             url = responseJSON.data.photo.unprocessed_image.url,
             currentPlaceholder = $('li.loading').first();
-            alert("urlComprele="+url );
 
         app.publisher.el_wrapper.addClass("with_attachments");
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");

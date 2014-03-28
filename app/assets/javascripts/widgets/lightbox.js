@@ -37,8 +37,6 @@ jQuery.fn.center = (function() {
         window: $(window)
       });
 
-      //self.post.delegate("a.stream-photo-link", "click", self.lightboximageclicked);
-      //buz=self.imageset.find("img").first();
       self.imageset.delegate("img", "click", self.imagesetImageClicked);
 
       self.window.resize(function() {

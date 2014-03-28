@@ -9,7 +9,6 @@ app.models.StatusMessage = app.models.Post.extend({
   },
 
   toJSON : function(){
-alert("dsd")
     return {
       status_message : _.clone(this.attributes),
       aspect_ids : this.get("aspect_ids"),
