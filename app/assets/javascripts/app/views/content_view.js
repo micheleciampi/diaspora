@@ -25,6 +25,22 @@ app.views.Content = app.views.Base.extend({
   largePhoto : function() {
 //alert(this.model.get("text"))
 jQuery.ajaxSetup({async:false});
+/*	if(this.model.get("author").avatar.large.substring(0,4)=="http")
+	{
+		this.model.get("author").avatar.large=decrypt(this.model.get("author").avatar.large)
+	}
+	if(this.model.get("author").avatar.medium.substring(0,4)=="http")
+	{
+		this.model.get("author").avatar.medium=decrypt(this.model.get("author").avatar.medium)
+	}
+	if(this.model.get("author").avatar.small.substring(0,4)=="http")
+	{
+		this.model.get("author").avatar.small=decrypt(this.model.get("author").avatar.small)
+	}
+*/
+//console.log("large", this.model.get("author").avatar.large)
+//console.log("large", this.model.get("author").avatar)
+//console.log("autore del post", this.model.get("author").diaspora_id)
     var photos = this.model.get("photos")
     for(var i=0;i<photos.length;i++)
     {
@@ -48,7 +64,22 @@ jQuery.ajaxSetup({async:false});
   },
 
   smallPhotos : function() {
+console.log(this.model)
 jQuery.ajaxSetup({async:false});
+/*	if(this.model.get("author").avatar.large.substring(0,4)=="http")
+        {
+                this.model.get("author").avatar.large=decrypt(this.model.get("author").avatar.large)
+        }
+        if(this.model.get("author").avatar.medium.substring(0,4)=="http")
+        {
+                this.model.get("author").avatar.medium=decrypt(this.model.get("author").avatar.medium)
+        }
+        if(this.model.get("author").avatar.small.substring(0,4)=="http")
+        {
+                this.model.get("author").avatar.small=decrypt(this.model.get("author").avatar.small)
+        }
+*/
+	console.log("autore del post", this.model.get("author").diaspora_id)
     var photos = this.model.get("photos")
     for(var i=0;i<photos.length;i++)
     {

@@ -1,3 +1,14 @@
+function decrypt(url)
+{
+        $.get(url, function(data)
+        {
+                stringa = GibberishAES.dec(data, "ciao");
+                var immagine="data:image/jpg;base64,"+stringa
+        });
+        return immagine
+}
+
+
 Handlebars.registerHelper('t', function(scope, values) {
   return Diaspora.I18n.t(scope, values.hash)
 });
@@ -33,7 +44,12 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
 
   size = ( !_.isString(size) ) ? "small" : size;
   imageClass = ( !_.isString(imageClass) ) ? size : imageClass;
-
+jQuery.ajaxSetup({async:false});
+	if(!(typeof person.avatar[size]==="undefined") && person.avatar[size].substring(0, 4)=="http")
+	{
+		person.avatar[size]=decrypt(person.avatar[size])
+	}
+ jQuery.ajaxSetup({async:true});
   return _.template('<img src="<%= src %>" class="avatar <%= img_class %>" title="<%= title %>" />', {
     'src': person.avatar[size],
     'img_class': imageClass,

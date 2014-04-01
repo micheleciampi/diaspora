@@ -50,8 +50,8 @@
           }
 
           $("#profile_photo_upload").find(".avatar").removeClass('loading');
-          $("#profile_photo_upload").find(".avatar").attr("src",url);
-          $(".avatar[data-person_id=#{current_user.person.id}]").attr("src",url);
+          $("#profile_photo_upload").find(".avatar").attr("src",newPhoto);
+          $(".avatar[data-person_id=#{current_user.person.id}]").attr("src",newPhoto);
          }
      });
     }
