@@ -13,73 +13,10 @@ app.views.Content = app.views.Base.extend({
   },
 
   presenter : function(){
-    return _.extend(this.defaultPresenter(), {
-      text : app.helpers.textFormatter(this.model.get("text"), this.model),
-      largePhoto : this.largePhoto(),
-      smallPhotos : this.smallPhotos(),
-      location: this.location()
-    });
-  },
-
-
-  largePhoto : function() {
-//alert(this.model.get("text"))
 jQuery.ajaxSetup({async:false});
-/*	if(this.model.get("author").avatar.large.substring(0,4)=="http")
-	{
-		this.model.get("author").avatar.large=decrypt(this.model.get("author").avatar.large)
-	}
-	if(this.model.get("author").avatar.medium.substring(0,4)=="http")
-	{
-		this.model.get("author").avatar.medium=decrypt(this.model.get("author").avatar.medium)
-	}
-	if(this.model.get("author").avatar.small.substring(0,4)=="http")
-	{
-		this.model.get("author").avatar.small=decrypt(this.model.get("author").avatar.small)
-	}
-*/
 //console.log("large", this.model.get("author").avatar.large)
 //console.log("large", this.model.get("author").avatar)
-//console.log("autore del post", this.model.get("author").diaspora_id)
-    var photos = this.model.get("photos")
-    for(var i=0;i<photos.length;i++)
-    {
-	if(photos[i].sizes.small.substring(0,4)=="http")
-	{
-		photos[i].sizes.small=decrypt(photos[i].sizes.small)
-	}
-	if(photos[i].sizes.medium.substring(0,4)=="http")
-	{
-		photos[i].sizes.medium=decrypt(photos[i].sizes.medium)
-	}
-	if(photos[i].sizes.large.substring(0,4)=="http")
-	{
-		photos[i].sizes.large=decrypt(photos[i].sizes.large)
-	}
-    }
-    jQuery.ajaxSetup({async:true});
-    if(!photos || photos.length == 0) { return }
-
-    return photos[0]
-  },
-
-  smallPhotos : function() {
-console.log(this.model)
-jQuery.ajaxSetup({async:false});
-/*	if(this.model.get("author").avatar.large.substring(0,4)=="http")
-        {
-                this.model.get("author").avatar.large=decrypt(this.model.get("author").avatar.large)
-        }
-        if(this.model.get("author").avatar.medium.substring(0,4)=="http")
-        {
-                this.model.get("author").avatar.medium=decrypt(this.model.get("author").avatar.medium)
-        }
-        if(this.model.get("author").avatar.small.substring(0,4)=="http")
-        {
-                this.model.get("author").avatar.small=decrypt(this.model.get("author").avatar.small)
-        }
-*/
-	console.log("autore del post", this.model.get("author").diaspora_id)
+console.log("autore del post", this.model.get("author").diaspora_id)
     var photos = this.model.get("photos")
     for(var i=0;i<photos.length;i++)
     {
@@ -96,8 +33,31 @@ jQuery.ajaxSetup({async:false});
                 photos[i].sizes.large=decrypt(photos[i].sizes.large)
         }
     }
-    
     jQuery.ajaxSetup({async:true});
+    return _.extend(this.defaultPresenter(), {
+      text : app.helpers.textFormatter(this.model.get("text"), this.model),
+      largePhoto : this.largePhoto(),
+      smallPhotos : this.smallPhotos(),
+      location: this.location()
+    });
+  },
+
+
+  largePhoto : function() {
+//alert(this.model.get("text"))
+//console.log("large", this.model.get("author").avatar.large)
+//console.log("large", this.model.get("author").avatar)
+console.log("autore del post", this.model.get("author").diaspora_id)
+  var photos = this.model.get("photos")
+  if(!photos || photos.length == 0) { return }
+
+    return photos[0]
+  },
+
+  smallPhotos : function() {
+console.log(this.model)
+	//console.log("autore del post", this.model.get("author").diaspora_id)
+    var photos = this.model.get("photos")
     if(!photos || photos.length < 2) { return }
     return photos.slice(1,8)
   },

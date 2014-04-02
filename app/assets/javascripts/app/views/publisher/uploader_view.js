@@ -68,7 +68,6 @@ app.views.PublisherUploader = Backbone.View.extend({
       var id  = response.data.photo.id,
           url = response.data.photo.unprocessed_image.url;
       this._addFinishedPhoto(id, url);
-//alert("ciao")
       this.trigger('change');
     } else {
       this._cancelPhotoUpload();
