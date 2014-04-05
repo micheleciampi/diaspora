@@ -40,6 +40,7 @@ Handlebars.registerHelper('hovercardable', function(person) {
 Handlebars.registerHelper('personImage', function(person, size, imageClass) {
   /* we return here if person.avatar is blank, because this happens when a
    * user is unauthenticated.  we don't know why this happens... */
+console.log("avt--->", person.avatar)
   if( _.isUndefined(person.avatar) ) { return }
 
   size = ( !_.isString(size) ) ? "small" : size;

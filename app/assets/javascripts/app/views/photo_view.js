@@ -15,14 +15,14 @@ app.views.Photo = app.views.Base.extend({
   className : "photo loaded",
 
   initialize : function() {
-jQuery.ajaxSetup({async:false});
-this.model.get("sizes").small=decrypt(this.model.get("sizes").small)
-this.model.get("sizes").medium=decrypt(this.model.get("sizes").medium)
-this.model.get("sizes").large=decrypt(this.model.get("sizes").large)
-jQuery.ajaxSetup({async:true});
-    $(this.el).attr("id", this.model.get("guid"));
-    this.model.bind('remove', this.remove, this);
-    return this;
+	jQuery.ajaxSetup({async:false});
+	this.model.get("sizes").small=decrypt(this.model.get("sizes").small)
+	this.model.get("sizes").medium=decrypt(this.model.get("sizes").medium)
+	this.model.get("sizes").large=decrypt(this.model.get("sizes").large)
+	jQuery.ajaxSetup({async:true});
+	$(this.el).attr("id", this.model.get("guid"));
+	this.model.bind('remove', this.remove, this);
+	return this;
   }
   
 });

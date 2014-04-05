@@ -16,7 +16,7 @@ app.views.Content = app.views.Base.extend({
 jQuery.ajaxSetup({async:false});
 //console.log("large", this.model.get("author").avatar.large)
 //console.log("large", this.model.get("author").avatar)
-console.log("autore del post", this.model.get("author").diaspora_id)
+//console.log("autore del post", this.model.get("author").diaspora_id)
     var photos = this.model.get("photos")
     for(var i=0;i<photos.length;i++)
     {
