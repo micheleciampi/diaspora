@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213171804) do
+ActiveRecord::Schema.define(:version => 20140430093537) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -76,12 +76,13 @@ ActiveRecord::Schema.define(:version => 20131213171804) do
   add_index "comments", ["guid"], :name => "index_comments_on_guid", :unique => true
 
   create_table "contacts", :force => true do |t|
-    t.integer  "user_id",                       :null => false
-    t.integer  "person_id",                     :null => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "sharing",    :default => false, :null => false
-    t.boolean  "receiving",  :default => false, :null => false
+    t.integer  "user_id",                                    :null => false
+    t.integer  "person_id",                                  :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.boolean  "sharing",                 :default => false, :null => false
+    t.boolean  "receiving",               :default => false, :null => false
+    t.string   "crypted_person_password"
   end
 
   add_index "contacts", ["person_id"], :name => "index_contacts_on_person_id"
@@ -247,6 +248,7 @@ ActiveRecord::Schema.define(:version => 20131213171804) do
     t.datetime "updated_at",                               :null => false
     t.boolean  "closed_account",        :default => false
     t.integer  "fetch_status",          :default => 0
+    t.string   "public_key"
   end
 
   add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
@@ -282,6 +284,17 @@ ActiveRecord::Schema.define(:version => 20131213171804) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "post_reports", :force => true do |t|
+    t.integer  "post_id",                       :null => false
+    t.string   "user_id"
+    t.boolean  "reviewed",   :default => false
+    t.text     "text"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "post_reports", ["post_id"], :name => "index_post_reports_on_post_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "author_id",                                              :null => false
@@ -482,6 +495,7 @@ ActiveRecord::Schema.define(:version => 20131213171804) do
     t.integer  "auto_follow_back_aspect_id"
     t.text     "hidden_shareables"
     t.datetime "reset_password_sent_at"
+    t.string   "master_key"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
@@ -490,36 +504,36 @@ ActiveRecord::Schema.define(:version => 20131213171804) do
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
-  add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk", :dependent => :delete
-  add_foreign_key "aspect_memberships", "contacts", :name => "aspect_memberships_contact_id_fk", :dependent => :delete
+  add_foreign_key "aspect_memberships", "aspects", name: "aspect_memberships_aspect_id_fk", dependent: :delete
+  add_foreign_key "aspect_memberships", "contacts", name: "aspect_memberships_contact_id_fk", dependent: :delete
 
-  add_foreign_key "aspect_visibilities", "aspects", :name => "aspect_visibilities_aspect_id_fk", :dependent => :delete
+  add_foreign_key "aspect_visibilities", "aspects", name: "aspect_visibilities_aspect_id_fk", dependent: :delete
 
-  add_foreign_key "comments", "people", :name => "comments_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "comments", "people", name: "comments_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "contacts", "people", :name => "contacts_person_id_fk", :dependent => :delete
+  add_foreign_key "contacts", "people", name: "contacts_person_id_fk", dependent: :delete
 
-  add_foreign_key "conversation_visibilities", "conversations", :name => "conversation_visibilities_conversation_id_fk", :dependent => :delete
-  add_foreign_key "conversation_visibilities", "people", :name => "conversation_visibilities_person_id_fk", :dependent => :delete
+  add_foreign_key "conversation_visibilities", "conversations", name: "conversation_visibilities_conversation_id_fk", dependent: :delete
+  add_foreign_key "conversation_visibilities", "people", name: "conversation_visibilities_person_id_fk", dependent: :delete
 
-  add_foreign_key "conversations", "people", :name => "conversations_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "conversations", "people", name: "conversations_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "invitations", "users", :name => "invitations_recipient_id_fk", :column => "recipient_id", :dependent => :delete
-  add_foreign_key "invitations", "users", :name => "invitations_sender_id_fk", :column => "sender_id", :dependent => :delete
+  add_foreign_key "invitations", "users", name: "invitations_recipient_id_fk", column: "recipient_id", dependent: :delete
+  add_foreign_key "invitations", "users", name: "invitations_sender_id_fk", column: "sender_id", dependent: :delete
 
-  add_foreign_key "likes", "people", :name => "likes_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "likes", "people", name: "likes_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "messages", "conversations", :name => "messages_conversation_id_fk", :dependent => :delete
-  add_foreign_key "messages", "people", :name => "messages_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "messages", "conversations", name: "messages_conversation_id_fk", dependent: :delete
+  add_foreign_key "messages", "people", name: "messages_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "notification_actors", "notifications", :name => "notification_actors_notification_id_fk", :dependent => :delete
+  add_foreign_key "notification_actors", "notifications", name: "notification_actors_notification_id_fk", dependent: :delete
 
-  add_foreign_key "posts", "people", :name => "posts_author_id_fk", :column => "author_id", :dependent => :delete
+  add_foreign_key "posts", "people", name: "posts_author_id_fk", column: "author_id", dependent: :delete
 
-  add_foreign_key "profiles", "people", :name => "profiles_person_id_fk", :dependent => :delete
+  add_foreign_key "profiles", "people", name: "profiles_person_id_fk", dependent: :delete
 
-  add_foreign_key "services", "users", :name => "services_user_id_fk", :dependent => :delete
+  add_foreign_key "services", "users", name: "services_user_id_fk", dependent: :delete
 
-  add_foreign_key "share_visibilities", "contacts", :name => "post_visibilities_contact_id_fk", :dependent => :delete
+  add_foreign_key "share_visibilities", "contacts", name: "post_visibilities_contact_id_fk", dependent: :delete
 
 end

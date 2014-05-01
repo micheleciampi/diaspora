@@ -1,14 +1,3 @@
-function decrypt(url)
-{
-    var immagine;
-        $.get(url, function(data)
-        {
-                stringa = GibberishAES.dec(data, "ciao");
-                immagine="data:image/jpg;base64,"+stringa
-        });
-        return immagine
-}
-
 app.views.Base = Backbone.View.extend({
 
   initialize : function(options) {
@@ -28,24 +17,32 @@ app.views.Base = Backbone.View.extend({
 
   defaultPresenter : function(){
     var modelJson = this.model && this.model.attributes ? _.clone(this.model.attributes) : {}
+console.log("-->", app.currentUser.attributes.xx)
+cryptedKey=app.currentUser.attributes.master_key
+console.log("---->Chiave cifrata", cryptedKey)
+master_key=localStorage.getItem('master_key')
+keyToCrypt= GibberishAES.dec(cryptedKey, master_key)
+console.log("---->Master key", master_key)
+console.log("---->Chiave per cifrare i dati", keyToCrypt)
+
+
 jQuery.ajaxSetup({async:false});
     avt = app.currentUser.attributes.avatar.large
     if(avt.substring(0, 4)=="http")
 	{
-		app.currentUser.attributes.avatar.large = decrypt(avt)
+		app.currentUser.attributes.avatar.large = decrypt(avt, keyToCrypt)
 	}
     avt = app.currentUser.attributes.avatar.medium
     if(avt.substring(0, 4)=="http")
 	{
-		app.currentUser.attributes.avatar.medium = decrypt(avt)
+		app.currentUser.attributes.avatar.medium = decrypt(avt, keyToCrypt) 
 	}
     avt = app.currentUser.attributes.avatar.small
     if(avt.substring(0, 4)=="http")
 	{
-		app.currentUser.attributes.avatar.small = decrypt(avt)
+		app.currentUser.attributes.avatar.small = decrypt(avt, keyToCrypt)
 	}
 jQuery.ajaxSetup({async:true});
-//console.log("---->", app)
     return _.extend(modelJson, {
       current_user : app.currentUser.attributes,
       loggedIn : app.currentUser.authenticated()

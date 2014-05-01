@@ -167,6 +167,7 @@ class UsersController < ApplicationController
       :current_password,
       :password,
       :password_confirmation,
+      :master_key, #yyy
       :language,
       :disable_mail,
       :invitation_service,

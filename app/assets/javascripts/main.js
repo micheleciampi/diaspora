@@ -2,6 +2,7 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
+//= require utilstocrypt.js 
 //= require underscore
 //= require backbone
 //= require rails.validations
@@ -45,3 +46,4 @@
 //= require osmlocator
 //= require gibberish-aes-1.0.0.min.js 
 //= require gibberish-aes-test.js 
+

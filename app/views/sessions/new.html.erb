@@ -28,6 +28,16 @@
                 <%= f.password_field :password, :placeholder => "••••••••", :required => true, :style => "width: 60%;" %>
             </div>
           </div>
+	<div class="control-group">
+                <label class="control-label" for="user_password">
+                  <%= t('registrations.new.master_password') %>
+                </label>
+
+                <div class="controls">
+                  <%= f.password_field :master_key2, :placeholder => "••••••••", :onChange =>"storeMasterKey()",:title => t('registrations.new.master_password'), :required => true, :pattern => "......+" %>
+
+                </div>
+              </div>
         </fieldset>
 
         <%= f.hidden_field :remember_me, :value => 1 %>

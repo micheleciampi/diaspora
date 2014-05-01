@@ -1,0 +1,1000 @@
+ 1007  bundle exec rake assets:precompile
+ 1008  ./se
+ 1009  cd script/
+ 1010  ./sc
+ 1011  ./server 
+ 1012  cd diaspora/script/
+ 1013  bundle exec rake assets:precompile
+ 1014  ./server 
+ 1015  bundle exec rake assets:precompile
+ 1016  ./server 
+ 1017  bundle exec rake assets:precompile
+ 1018  ./server 
+ 1019  bundle exec rake assets:precompile
+ 1020  ./server 
+ 1021  bundle exec rake assets:precompile
+ 1022  ./server 
+ 1023  sudo -s
+ 1024  ls
+ 1025  cd diaspora/
+ 1026  ls
+ 1027  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1028  sudo -s
+ 1029  cd diaspora/
+ 1030  vim /home/diaspora/diaspora/lib/assets/javascripts/fileuploader-custom.js
+ 1031  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.js
+ 1032  cd script/
+ 1033  ./server 
+ 1034  bundle exec rake assets:precompile
+ 1035  sudo -s
+ 1036  bundle exec rake assets:precompile
+ 1037  vim /home/diaspora/diaspora/lib/assets/javascripts/fileuploader-custom.js
+ 1038  cd script/
+ 1039  ls
+ 1040  ./server 
+ 1041  cd diaspora/
+ 1042  sudo -s
+ 1043  vim /home/diaspora/diaspora/lib/assets/javascripts/fileuploader-custom.js
+ 1044  sudo -s
+ 1045  ls
+ 1046  cd diaspora/
+ 1047  cd script/
+ 1048  ./server 
+ 1049  vimm /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.js
+ 1050  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.js
+ 1051  cd diaspora/
+ 1052  sudo -s
+ 1053  sudo -s
+ 1054  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1055  cd diaspora/
+ 1056  cd script/
+ 1057  ls
+ 1058  cd ..
+ 1059  cd app/assets/
+ 1060  cd javascripts/
+ 1061  ls
+ 1062  cd widgets/
+ 1063  ls
+ 1064  vim timeago.js 
+ 1065  cd ..
+ 1066  ls
+ 1067  cd ho
+ 1068  vim home.js 
+ 1069  cd app/
+ 1070  ls
+ 1071  cd collections/+
+ 1072  ls
+ 1073  cd collections/
+ 1074  ls
+ 1075  vim photos.js 
+ 1076  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1077  vim aspects.js 
+ 1078  ls
+ 1079  cd ../../
+ 1080  ls
+ 1081  vim aspect-edit-pane.js 
+ 1082  vim contact-list.js
+ 1083  ls
+ 1084  cd pages/
+ 1085  ls
+ 1086  cd ..
+ 1087  sudo -s
+ 1088  sudo -s
+ 1089  vim /home/diaspora/diaspora/lib/assets/javascripts/fileuploader-custom.js
+ 1090  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1091  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/photo_view.js
+ 1092  ls
+ 1093  cd diaspora/
+ 1094  ls
+ 1095  cd app/
+ 1096  ls
+ 1097  cd assets/
+ 1098  ls
+ 1099  cd javascripts/
+ 1100  ls
+ 1101  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1102  cd app/
+ 1103  ls
+ 1104  cd views/
+ 1105  ls
+ 1106  vim photo_view
+ 1107  vim photo_viewer.js 
+ 1108  vim photo_view.js 
+ 1109  pwd
+ 1110  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1111  find . -type f -exec grep -l "image_list" {} \;
+ 1112  cd ../
+ 1113  find . -type f -exec grep -l "image_list" {} \;
+ 1114  cd --
+ 1115  cd ..
+ 1116  find . -type f -exec grep -l "image_list" {} \;
+ 1117  vim ./diaspora/diaspora/features/desktop/profile_photos.feature
+ 1118  find . -type f -exec grep -l "profile information" {} \;
+ 1119  ls
+ 1120  cd script/
+ 1121  ls
+ 1122  bundle exec rake assets:precompile
+ 1123  ./server 
+ 1124  bundle exec rake assets:precompile
+ 1125  ./server 
+ 1126  bundle exec rake assets:precompile
+ 1127  ./server 
+ 1128  bundle exec rake assets:precompile
+ 1129  ./server 
+ 1130  bundle exec rake assets:precompile
+ 1131  ./server 
+ 1132  bundle exec rake assets:precompile
+ 1133  ./server 
+ 1134  sudo -s
+ 1135  cd diaspora/
+ 1136  ls
+ 1137  cd script/
+ 1138  ./server 
+ 1139  bundle exec rake assets:precompile
+ 1140  ./server 
+ 1141  bundle exec rake assets:precompile
+ 1142  ./server 
+ 1143  bundle exec rake assets:precompile
+ 1144  ./server 
+ 1145  bundle exec rake assets:precompile
+ 1146  ./server 
+ 1147  bundle exec rake assets:precompile
+ 1148  ./server 
+ 1149  bundle exec rake assets:precompile
+ 1150  ./server 
+ 1151  bundle exec rake assets:precompile
+ 1152  ./server 
+ 1153  cd diaspora/
+ 1154  ls
+ 1155  cd app/
+ 1156  cd assets/
+ 1157  ls
+ 1158  cd javascripts/
+ 1159  ls
+ 1160  vim home.js 
+ 1161  vim jasmine-load-all.js 
+ 1162  vim ie.js 
+ 1163  vim main.js 
+ 1164  pwd
+ 1165  ls
+ 1166  vim view.js 
+ 1167  vim /home/diaspora/diaspora/app/views/photos/_new_profile_photo.haml
+ 1168  find . -type f -exec grep -l "avatar" {} \;
+ 1169  vim ./view.js
+ 1170  vim ./app/helpers/handlebars-helpers.js
+ 1171  pwd
+ 1172  vim ./app/views/single-post-viewer/reactions.js
+ 1173  vim ./app/views/single-post-viewer/single_post_interactions.js
+ 1174  vim ./app/views/publisher_view.js
+ 1175  vim ./app/views/stream_faces_view.js
+ 1176  vim ./app/views/hovercard_view.js
+ 1177  cd
+ 1178  cd diaspora/
+ 1179  ls
+ 1180  cd script/
+ 1181  ls
+ 1182  se
+ 1183  ./server 
+ 1184  sudo -s
+ 1185  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.js
+ 1186  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1187  sudo -s
+ 1188  cd diaspora/
+ 1189  ls
+ 1190  cd script/
+ 1191  ls
+ 1192  ./server 
+ 1193  vim /home/diaspora/diaspora/app/views/photos/_new_profile_photo.haml
+ 1194  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1195  sudo -s
+ 1196  view.js
+ 1197  sudo -s
+ 1198  ks
+ 1199  ls
+ 1200  cd diaspora/
+ 1201  cd script/
+ 1202  ./server 
+ 1203  bundle exec rake assets:precompile
+ 1204  ./server 
+ 1205  bundle exec rake assets:precompile
+ 1206  ./server 
+ 1207  bundle exec rake assets:precompile
+ 1208  ./server 
+ 1209  bundle exec rake assets:precompile
+ 1210  ./server 
+ 1211  bundle exec rake assets:precompile
+ 1212  ./server 
+ 1213  bundle exec rake assets:precompile
+ 1214  ./server 
+ 1215  bundle exec rake assets:precompile
+ 1216  ./server 
+ 1217  bundle exec rake assets:precompile
+ 1218  ./server 
+ 1219  bundle exec rake assets:precompile
+ 1220  ./server 
+ 1221  bundle exec rake assets:precompile
+ 1222  ./server 
+ 1223  bundle exec rake assets:precompile
+ 1224  ./server 
+ 1225  sudo -s
+ 1226  ls
+ 1227  cd diaspora/
+ 1228  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1229  cd app/assets/javascripts/
+ 1230  find . -type f -exec grep -l "avatar small" {} \;
+ 1231  find . -type f -exec grep -l "avatar-small" {} \;
+ 1232  find . -type f -exec grep -l "avatar" {} \;
+ 1233  vim ./view.js
+ 1234  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1235  sudo -s
+ 1236  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1237  ls
+ 1238  cd diaspora/
+ 1239  ls
+ 1240  cd script/
+ 1241  ls
+ 1242  ./server 
+ 1243  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/photo_view.js
+ 1244  sudo -s
+ 1245  cd diaspora/
+ 1246  cd script/
+ 1247  bundle exec rake assets:precompile
+ 1248  ./server 
+ 1249  bundle exec rake assets:precompile
+ 1250  ./server 
+ 1251  bundle exec rake assets:precompile
+ 1252  ./server 
+ 1253  lsof -i :3000
+ 1254  sudo lsof -i :3000
+ 1255  sudo -s
+ 1256  kill 27738
+ 1257  lsof -i :3000
+ 1258  cd diaspora/
+ 1259  ls
+ 1260  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1261  git add --all
+ 1262  git commit -m "cifratura e decifratura dell'immagine dell'avatar (solo per i post)" 
+ 1263  git push origin master
+ 1264  sudo -s
+ 1265  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1266  cd diaspora/
+ 1267  ls
+ 1268  cd script/
+ 1269  ./server 
+ 1270  sudo -s
+ 1271  sudo -s
+ 1272  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/photo_view.js
+ 1273  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1274  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1275  sudo -s
+ 1276  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.js
+ 1277  cd diaspora/
+ 1278  cd script/
+ 1279  ls
+ 1280  ./server 
+ 1281  bundle exec rake assets:precompile
+ 1282  ./server 
+ 1283  bundle exec rake assets:precompile
+ 1284  ./server 
+ 1285  bundle exec rake assets:precompile
+ 1286  ./server 
+ 1287  bundle exec rake assets:precompile
+ 1288  ./server 
+ 1289  sudo -s
+ 1290  sudo -s
+ 1291  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1292  sudo -s
+ 1293  ls
+ 1294  cd diaspora/
+ 1295  git add --all
+ 1296  git commit -m "Migliorato codice per mostrare le immagini dei post"
+ 1297  git push origin master
+ 1298  sudo -s
+ 1299  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1300  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/photo_view.js
+ 1301  sudo -s
+ 1302  cd diaspora/
+ 1303  ls
+ 1304  cd script/
+ 1305  bundle exec rake assets:precompile
+ 1306  ./server 
+ 1307  bundle exec rake assets:precompile
+ 1308  sudo -s
+ 1309  ls
+ 1310  cd diaspora/
+ 1311  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1312  ./se
+ 1313  cd diaspora/
+ 1314  cd script/
+ 1315  ls
+ 1316  ./server 
+ 1317  bundle exec rake assets:precompile
+ 1318  ./server 
+ 1319  bundle exec rake assets:precompile
+ 1320  ./server 
+ 1321  bundle exec rake assets:precompile
+ 1322  ./server 
+ 1323  bundle exec rake assets:precompile
+ 1324  ./server 
+ 1325  bundle exec rake assets:precompile
+ 1326  ./server 
+ 1327  sudo -s
+ 1328  sudo -s
+ 1329  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1330  sudo -s
+ 1331  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/photo_view.js
+ 1332  sudo -s
+ 1333  cd diaspora/
+ 1334  ls
+ 1335  cd app/
+ 1336  cd assets/javascripts/
+ 1337  find . -type f -exec grep -l "app.views.Photo" {} \;
+ 1338  vim ./app/forms/picture_form.js
+ 1339  vim app/router.js 
+ 1340  vim app/views/photos_view.js 
+ 1341  vim app/views/photo_viewer.js 
+ 1342  find . -type f -exec grep -l "app.views.Base." {} \;
+ 1343  find . -type f -exec grep -l "app.views.Base" {} \;
+ 1344  vim ./app/views.js
+ 1345  pwd
+ 1346  ls
+ 1347  cd helpers/
+ 1348  ls
+ 1349  vim text_formatter.js 
+ 1350  vim handlebars-partials.js
+ 1351  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1352  cd /home/diaspora/diaspora/app/assets/javascripts/app/
+ 1353  sudo -s
+ 1354  sudo -s
+ 1355  cd diaspora/
+ 1356  cd script/
+ 1357  ls
+ 1358  ./server 
+ 1359  bundle exec rake assets:precompile
+ 1360  ./server 
+ 1361  bundle exec rake assets:precompile
+ 1362  ./server 
+ 1363  bundle exec rake assets:precompile
+ 1364  ./server 
+ 1365  cd diaspora/
+ 1366  ls
+ 1367  sudo -s
+ 1368  ls
+ 1369  find . -type f -exec grep -l "avatar small" {} \;
+ 1370  cd app/assets/javascripts/
+ 1371  find . -type f -exec grep -l "avatar small" {} \;
+ 1372  find . -type f -exec grep -l "avatar_small" {} \;
+ 1373  find . -type f -exec grep -l "avatar-small" {} \;
+ 1374  find . -type f -exec grep -l "avatar" {} \;
+ 1375  vim ./app/views/hovercard_view.js
+ 1376  vim ./widgets/search.js
+ 1377  vim ./app/helpers/handlebars-helpers.js
+ 1378  vim ./app/views/single-post-viewer/reactions.js
+ 1379  vim ./app/views/stream_faces_view.js
+ 1380  vim ./app/views/hovercard_view.js
+ 1381  vim ./app/views/publisher_view.js
+ 1382  vim ./app/views/content_view.js
+ 1383  bundle exec rake assets:precompile
+ 1384  cd diaspora/
+ 1385  cd script/
+ 1386  bundle exec rake assets:precompile
+ 1387  ./server 
+ 1388  bundle exec rake assets:precompile
+ 1389  ./server 
+ 1390  bundle exec rake assets:precompile
+ 1391  ./server 
+ 1392  bundle exec rake assets:precompile
+ 1393  cd diaspora/
+ 1394  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1395  cd app/
+ 1396  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1397  find . -type f -exec grep -l "person.avatar" {} \;
+ 1398  vim ./assets/javascripts/app/views/hovercard_view.js
+ 1399  find . -type f -exec grep -l "avatar" {} \;
+ 1400  vim vim ./assets/javascripts/app/views/single-post-viewer/reactions.js
+ 1401  vim ./assets/javascripts/app/views/single-post-viewer/reactions.js
+ 1402  vim ./views/photos/_new_profile_photo.haml
+ 1403  vim ./assets/javascripts/app/views/stream_faces_view.js
+ 1404  vim ./views/publics/hcard.haml
+ 1405  vim ./assets/javascripts/app/helpers/handlebars-helpers.js
+ 1406  sudo -s
+ 1407  cd script/
+ 1408  bundle exec rake assets:precompile
+ 1409  ./server 
+ 1410  bundle exec rake assets:precompile
+ 1411  ./server 
+ 1412  bundle exec rake assets:precompile
+ 1413  ./server 
+ 1414  cd diaspora/
+ 1415  sudo -s
+ 1416  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1417  ls
+ 1418  cd diaspora/
+ 1419  sudo -s
+ 1420  ./se
+ 1421  find . -type f -exec grep -l "avatar" {} \;
+ 1422  vim ./spec/fixtures/public_posts.json
+ 1423  vim ./spec/javascripts/app/views/photos_view_spec.js
+ 1424  find . -type f -exec grep -l "person.avatar" {} \;
+ 1425  vim ./app/assets/javascripts/app/views.js
+ 1426  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1427  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1428  find . -type f -exec grep -l "Handlebars.registerHelper" {} \;
+ 1429  sudo -s
+ 1430  cd diaspora/
+ 1431  find . -type f -exec grep -l "Handlebars.registerHelper" {} \;
+ 1432  vim ./app/assets/javascripts/app/helpers/
+ 1433  cd ./app/assets/javascripts/app/helpers/
+ 1434  ls
+ 1435  cd ~diaspora/
+ 1436  ls
+ 1437  cd diaspora/
+ 1438  cd app/
+ 1439  cd ..
+ 1440  vim ./public/assets/templates.js
+ 1441  vim ./app/assets/javascripts/app/views/publisher/uploader_view.js
+ 1442  vim vim ./app/assets/javascripts/app/helpers/handlebars-partials.js
+ 1443  vim vim ./app/assets/javascripts/widgets/search.js
+ 1444  ivm ./app/assets/javascripts/widgets/search.js
+ 1445  vim ./app/assets/javascripts/widgets/search.js
+ 1446  ls
+ 1447  cd app/assets/
+ 1448  cd templates/
+ 1449  ls
+ 1450  sudo -s
+ 1451  cd diaspora/
+ 1452  ls
+ 1453  cd script/
+ 1454  ./server 
+ 1455  bundle exec rake assets:precompile
+ 1456  ./server 
+ 1457  cd diaspora/
+ 1458  git show
+ 1459  git add --all
+ 1460  git commit -m "upload e download ok, immagine avatar unica a non vedersi"
+ 1461  git push origin master
+ 1462  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1463  cd app/
+ 1464  ls
+ 1465  cd models/
+ 1466  ls
+ 1467  vim person.rb 
+ 1468  lsof -i :3000
+ 1469  kill 6776
+ 1470  lsof -i :3000
+ 1471  sudo -s
+ 1472  cd diaspora
+ 1473  rails generate migration AddDetailsToPeople public_key:string
+ 1474  exit
+ 1475  cd diaspora/
+ 1476  ls
+ 1477  cd app/models/
+ 1478  ls
+ 1479  vim person.rb 
+ 1480  ls
+ 1481  vim user.rb 
+ 1482  find . -type f -exec grep -l "create_table" {} \;
+ 1483  cd ..
+ 1484  find . -type f -exec grep -l "create_table" {} \;
+ 1485  cd ..
+ 1486  find . -type f -exec grep -l "create_table" {} \;
+ 1487  vi ./db/migrate/0000_create_schema.rb
+ 1488  ls
+ 1489  cd ..
+ 1490  ls
+ 1491  cp -r diaspora/ diaspora_beforeDB
+ 1492  cd diaspora
+ 1493  vim ./db/migrate/0000_create_schema.rb
+ 1494  rake db:migrate
+ 1495  RAILS_ENV=production  bundle exec rake db:create db:schema:load
+ 1496  vim p
+ 1497  bundle exec rake assets:precompile
+ 1498  ./se
+ 1499  cd script/
+ 1500  ./server 
+ 1501  ls
+ 1502  sudo -s
+ 1503  ls
+ 1504  cd diaspora
+ 1505  l
+ 1506  cd app/models/
+ 1507  ls
+ 1508  cd ../../
+ 1509  ls
+ 1510  cd db/
+ 1511  ls
+ 1512  vim schema.rb 
+ 1513  cd migrate/
+ 1514  ls
+ 1515  vim q
+ 1516  ls
+ 1517  cd ..
+ 1518  ls
+ 1519  vim schema.rb 
+ 1520  ls
+ 1521  cd diaspora
+ 1522  ls
+ 1523  cd app/
+ 1524  ls
+ 1525  cd ../
+ 1526  ls
+ 1527  cd db/
+ 1528  ls
+ 1529  vim seeds.rb 
+ 1530  vim schema.rb 
+ 1531  cd ..
+ 1532  ls
+ 1533  vim Gemfile
+ 1534  bundle exec rake assets:precompile
+ 1535  ./se
+ 1536  ./see
+ 1537  cd script/
+ 1538  ./server 
+ 1539  rails generate migration AddDetailsToPeople public_key:string
+ 1540  cd diaspora
+ 1541  rails generate migration AddDetailsToPeople public_key:string
+ 1542  sudo rails generate migration AddDetailsToPeople public_key:string
+ 1543  sudo rails generate migration AddDetailsTopeople public_key:string
+ 1544  rake db:migrate
+ 1545  RAILS_ENV=production  bundle exec rake db:migrate
+ 1546  RAILS_ENV=production  bundle exec  generate migration AddDetailsToPeople public_key:string
+ 1547  RAILS_ENV=production  bundle exec rails  generate migration AddDetailsToPeople public_key:string
+ 1548  vim db/migrate/20140407102944_add_details_to_people.rb
+ 1549  RAILS_ENV=production  bundle exec rake db:migrate
+ 1550  cd db/
+ 1551  ls
+ 1552  cim schema.rb 
+ 1553  vim schema.rb 
+ 1554  ls
+ 1555  cd app/
+ 1556  vim /home/diaspora/diaspora/app/assets/javascripts/app/helpers/handlebars-helpers.js
+ 1557  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.js
+ 1558  vim /home/diaspora/diaspora/app/assets/javascripts/app/views.js
+ 1559  ls
+ 1560  cd views/
+ 1561  ls
+ 1562  cd ../../../
+ 1563  ls
+ 1564  cd prova/
+ 1565  ls
+ 1566  cd app/
+ 1567  ls
+ 1568  cd views/
+ 1569  l
+ 1570  ls
+ 1571  cd home/
+ 1572  ls
+ 1573  vim index.html.erb 
+ 1574  cd 
+ 1575  cd diaspora
+ 1576  ls
+ 1577  cd app/
+ 1578  ls
+ 1579  cd views/
+ 1580  ls
+ 1581  cd registrations/
+ 1582  ls
+ 1583  vim new.html.erb 
+ 1584  ls
+ 1585  vim ciao 
+ 1586  cd diaspora
+ 1587  sudo -s
+ 1588  ls
+ 1589  cd diaspora
+ 1590  ls
+ 1591  cd app/
+ 1592  ls
+ 1593  cd views/
+ 1594  ls
+ 1595  cd registrations/
+ 1596  ls
+ 1597  vim edit.html.haml 
+ 1598  vim new.html.erb 
+ 1599  ls
+ 1600  cd diaspora
+ 1601  ls
+ 1602  cd script/
+ 1603  ./server 
+ 1604  cd diaspora
+ 1605  sudo -s
+ 1606  ls
+ 1607  cd app/
+ 1608  ls
+ 1609  cd views/
+ 1610  ls
+ 1611  cd registrations/
+ 1612  ls
+ 1613  vim new.html.erb 
+ 1614  cd diaspora
+ 1615  find . -type f -exec grep -l "enter_password_again" {} \;
+ 1616  vim ./config/locales/diaspora/it.yml
+ 1617  sudo -s
+ 1618  ls
+ 1619  cd diaspora
+ 1620  ls
+ 1621  cd log
+ 1622  ls
+ 1623  vim production.log 
+ 1624  echo > production.log 
+ 1625  ls
+ 1626  vim production.log 
+ 1627  cd ../
+ 1628  ls
+ 1629  cd app/
+ 1630  ls
+ 1631  cd controllers/
+ 1632  ls
+ 1633  cd ..
+ 1634  ls
+ 1635  cd ..
+ 1636  cd mo
+ 1637  cd app/models/
+ 1638  ls
+ 1639  vim user.rb 
+ 1640  sudo -s
+ 1641  cd diaspora
+ 1642  ls
+ 1643  cd app/
+ 1644  ls
+ 1645  cd models/
+ 1646  ls
+ 1647  cd ..
+ 1648  ls
+ 1649  cd db/
+ 1650  ls
+ 1651  vim schema.rb 
+ 1652  sudo -s
+ 1653  ls
+ 1654  cd prova/
+ 1655  ls
+ 1656  cd app/
+ 1657  ls
+ 1658  cd controllers/
+ 1659  ls
+ 1660  vim application_controller.rb 
+ 1661  vim posts_controller.rb 
+ 1662  cd
+ 1663  cd diaspora/script/
+ 1664  ls
+ 1665  ./server 
+ 1666  s
+ 1667  cd ../
+ 1668  ls
+ 1669  cd app/
+ 1670  cd views/
+ 1671  ls
+ 1672  cd registrations/
+ 1673  ls
+ 1674  vim new.html.erb 
+ 1675  sudo -s
+ 1676  cd diaspora
+ 1677  cd vi
+ 1678  ls
+ 1679  cd app/views/
+ 1680  ls
+ 1681  cd registrations/
+ 1682  ls
+ 1683  vim new.html.erb 
+ 1684  cd ../../
+ 1685  ls
+ 1686  cd ../
+ 1687  ls
+ 1688  cd log/
+ 1689  ls
+ 1690  vim production.log 
+ 1691  rails generate migration Addmaster_passwordTousers master_password:string
+ 1692  bundle exec generate migration Addmaster_passwordTousers master_password:string
+ 1693  bundle exec rake generate migration Addmaster_passwordTousers master_password:string
+ 1694  cat history > file
+ 1695  cat History > file
+ 1696  cat HISTORY > file
+ 1697  HYSTORi
+ 1698  history
+ 1699  history > file
+ 1700  vim file 
+ 1701  RAILS_ENV=production  bundle exec rails  generate migration AddDetailsTousers master_key:string
+ 1702  history > file
+ 1703  vim file 
+ 1704  cd ..
+ 1705  cd db/
+ 1706  ls
+ 1707  vim schema.rb 
+ 1708  RAILS_ENV=production  bundle exec rake db:migrate
+ 1709  ls
+ 1710  vim schema.rb 
+ 1711  RAILS_ENV=production  bundle exec rails  generate migration AddDetailsToUsers master_key:string
+ 1712  RAILS_ENV=production  bundle exec rake db:migrate
+ 1713  ls
+ 1714  cd
+ 1715  cd diaspora/script/
+ 1716  ./server 
+ 1717  sudo -s
+ 1718  VIM /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.j
+ 1719  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.j
+ 1720  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.js
+ 1721  vim /home/diaspora/diaspora/lib/assets/javascripts/fileuploader-custom.js
+ 1722  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js
+ 1723  sudo -s
+ 1724  lsfo: 3000
+ 1725  lsof -i :3000
+ 1726  vim /home/diaspora/diaspora/app/views/photos/_new_profile_photo.haml
+ 1727  sudo -s
+ 1728  sudo -s
+ 1729  cd diaspora
+ 1730  ls
+ 1731  cd db/
+ 1732  l
+ 1733  ls
+ 1734  cd ../
+ 1735  cd log/
+ 1736  ls
+ 1737  rm file 
+ 1738  vim production.log 
+ 1739  cd ..
+ 1740  ls
+ 1741  cd app/
+ 1742  ls
+ 1743  cd controllers/
+ 1744  ls
+ 1745  vim registrations_controller.rb 
+ 1746  sudo -s
+ 1747  sudo -s
+ 1748  vim /home/diaspora/diaspora/vendor/assets/javascripts/rails.validations.js
+ 1749  sudo -s
+ 1750  sudo -s
+ 1751  cd diaspora/script/
+ 1752  ./server 
+ 1753  lsof -i :3000
+ 1754  kill 10575
+ 1755  ./server 
+ 1756  kill 1
+ 1757  ./server 
+ 1758  lsof -i :3000
+ 1759  kill 10606
+ 1760  ls
+ 1761  lsof -i :3000
+ 1762  kill $1
+ 1763  kill #1
+ 1764  kill 10575 -p
+ 1765  kill 1 -p
+ 1766  jobs
+ 1767  kill [1] p
+ 1768  kill $(1) -p
+ 1769  kill $(1) -
+ 1770  kill $(1) 
+ 1771  kill $(1 -p) 
+ 1772  kill -9 $(1 -p) 
+ 1773  kill -9 10606
+ 1774  ./server 
+ 1775  kill %1
+ 1776  ./server 
+ 1777  sudo -s
+ 1778  cd diaspora
+ 1779  ls
+ 1780  cd app/
+ 1781  ls
+ 1782  cd assets/
+ 1783  ls
+ 1784  cd javascripts/
+ 1785  ls
+ 1786  vim utilstocrypt.js 
+ 1787  vim home.js 
+ 1788  vim diaspora.js 
+ 1789  vim utilstocrypt.js 
+ 1790  sudo -s
+ 1791  cd diaspora/script/
+ 1792  ./server 
+ 1793  bundle exec rake assets:precompile
+ 1794  ./server 
+ 1795  bundle exec rake assets:precompile
+ 1796  ./server 
+ 1797  bundle exec rake assets:precompile
+ 1798  ./server 
+ 1799  bundle exec rake assets:precompile
+ 1800  ./server 
+ 1801  bundle exec rake assets:precompile
+ 1802  ./server 
+ 1803  bundle exec rake assets:precompile
+ 1804  ./server 
+ 1805  bundle exec rake assets:precompile
+ 1806  ./server 
+ 1807  sudo -s
+ 1808  ls
+ 1809  cd diaspora
+ 1810  vim sualizza Immagini
+ 1811  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/content_view.js 
+ 1812  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/photo_view.js
+ 1813  vim /home/diaspora/diaspora/app/assets/javascripts/app/views.js
+ 1814  cd db/
+ 1815  cd ..
+ 1816  ls
+ 1817  cd app/
+ 1818  ls
+ 1819  cd assets/
+ 1820  ls
+ 1821  cd javascripts/
+ 1822  ls
+ 1823  cd app/
+ 1824  ls
+ 1825  cd forms/
+ 1826  ls
+ 1827  cd ../
+ 1828  ls
+ 1829  cd ../
+ 1830  ls
+ 1831  cd ..
+ 1832  ls
+ 1833  cd views/
+ 1834  ls
+ 1835  cd re
+ 1836  ls
+ 1837  cd home/
+ 1838  ls
+ 1839  cd ..
+ 1840  ls
+ 1841  find . -type f -exec grep -l "loginw" {} \;
+ 1842  find . -type f -exec grep -l "login" {} \;
+ 1843  vim ./sessions/new.haml
+ 1844  pwd
+ 1845  vim /home/diaspora/diaspora/app/views/registrations/new.html.erb
+ 1846  sudo -s
+ 1847  vim /home/diaspora/diaspora/app/views/sessions/new.haml
+ 1848  cd diaspora
+ 1849  ls
+ 1850  cd app/
+ 1851  cd views/
+ 1852  ls
+ 1853  cd sessions/
+ 1854  ls
+ 1855  vim new.html.erb 
+ 1856  sudo -s
+ 1857  cd diaspora
+ 1858  ls
+ 1859  cd app/assets/javascripts/
+ 1860  vim utilstocrypt.js 
+ 1861  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/publisher/uploader_view.js
+ 1862  vim /home/diaspora/diaspora/app/assets/javascripts/app/views/photo_view.js
+ 1863  ls
+ 1864  cd diaspora
+ 1865  cd script/
+ 1866  ./server 
+ 1867  bundle exec rake assets:precompile
+ 1868  ./server 
+ 1869  bundle exec rake assets:precompile
+ 1870  ./server 
+ 1871  bundle exec rake assets:precompile
+ 1872  ./server 
+ 1873  bundle exec rake assets:precompile
+ 1874  ./server 
+ 1875  bundle exec rake assets:precompile
+ 1876  ./server 
+ 1877  bundle exec rake assets:precompile
+ 1878  ./server 
+ 1879  bundle exec rake assets:precompile
+ 1880  ./server 
+ 1881  bundle exec rake assets:precompile
+ 1882  ./server 
+ 1883  bundle exec rake assets:precompile
+ 1884  ./server 
+ 1885  bundle exec rake assets:precompile
+ 1886  ./server 
+ 1887  bundle exec rake assets:precompile
+ 1888  ./server 
+ 1889  bundle exec rake assets:precompile
+ 1890  ./server 
+ 1891  bundle exec rake assets:precompile
+ 1892  ./server 
+ 1893  bundle exec rake assets:precompile
+ 1894  ./server 
+ 1895  bundle exec rake assets:precompile
+ 1896  ./server 
+ 1897  bundle exec rake assets:precompile
+ 1898  ./server 
+ 1899  bundle exec rake assets:precompile
+ 1900  ./server 
+ 1901  bundle exec rake assets:precompile
+ 1902  ./server 
+ 1903  RAILS_ENV=production  bundle exec rake db:create db:schema:load
+ 1904  bundle exec rake assets:precompile
+ 1905  ./server 
+ 1906  RAILS_ENV=production  bundle exec rake db:create db:schema:load
+ 1907  bundle exec rake assets:precompile
+ 1908  ./server 
+ 1909  bundle exec rake assets:precompile
+ 1910  ./server 
+ 1911  sudo -
+ 1912  sudo -s
+ 1913  sudo -s
+ 1914  sudo -s
+ 1915  sudo -s
+ 1916  vim /home/diaspora/diaspora/app/assets/javascripts/app/views.js
+ 1917  ls
+ 1918  cd diaspora
+ 1919  s
+ 1920  ls
+ 1921  cd db/
+ 1922  ls
+ 1923  vim schema.rb 
+ 1924  cd ..
+ 1925  find . -type f -exec grep -l "has_many" {} \;
+ 1926  vim ./app/models/user.rb
+ 1927  cd app/models/o
+ 1928  cd app/models/
+ 1929  ls
+ 1930  vim invitation.rb 
+ 1931  rails console
+ 1932  rails c
+ 1933  RAILS_ENV=production  bundle exec rails dbconsole
+ 1934  sudo -s
+ 1935  sudo -s
+ 1936  cd diaspora
+ 1937  ls
+ 1938  cd db/
+ 1939  l
+ 1940  ls
+ 1941  vim seeds.rb 
+ 1942  vim schema.rb 
+ 1943  RAILS_ENV=production  bundle exec rake db:create db:schema:load
+ 1944  ls
+ 1945  cd migrate/
+ 1946  ls
+ 1947  cd ..
+ 1948  ls
+ 1949  cd ..
+ 1950  ls
+ 1951  cd app/models/
+ 1952  ls
+ 1953  vim contact.rb 
+ 1954  n  bundle exec rake db:create db:schema:load
+ 1955  bundle exec rake assets:precompile
+ 1956  ./server 
+ 1957  bundle exec rake assets:precompile
+ 1958  ./server 
+ 1959  sudo -
+ 1960  sudo -s
+ 1961  sudo -s
+ 1962  sudo -s
+ 1963  sudo -s
+ 1964  vim /home/diaspora/diaspora/app/assets/javascripts/app/views.js
+ 1965  ls
+ 1966  cd diaspora
+ 1967  s
+ 1968  ls
+ 1969  cd db/
+ 1970  ls
+ 1971  vim schema.rb 
+ 1972  cd ..
+ 1973  find . -type f -exec grep -l "has_many" {} \;
+ 1974  vim ./app/models/user.rb
+ 1975  cd app/models/o
+ 1976  cd app/models/
+ 1977  ls
+ 1978  vim invitation.rb 
+ 1979  rails console
+ 1980  rails c
+ 1981  RAILS_ENV=production  bundle exec rails dbconsole
+ 1982  sudo -s
+ 1983  sudo -s
+ 1984  cd diaspora
+ 1985  cd script/
+ 1986  ./server 
+ 1987  sudo -s
+ 1988  ls
+ 1989  cd ..
+ 1990  ls
+ 1991  cd ciampi/
+ 1992  ls
+ 1993  vim mikonos.pass 
+ 1994  RAILS_ENV=production bundle exec rails console
+ 1995  cd diaspora
+ 1996  RAILS_ENV=production bundle exec rails console
+ 1997  RAILS_ENV=production bundle exec rails mysql c
+ 1998  RAILS_ENV=production bundle exec  mysql c
+ 1999  exit
+ 2000  amzet
+ 2001  ls
+ 2002  RAILS_ENV=production bundle exec  mysql c
+ 2003  RAILS_ENV=production bundle exec mysql c
+ 2004  RAILS_ENV=production bundle exec mysql console
+ 2005  history
+ 2006  history > file

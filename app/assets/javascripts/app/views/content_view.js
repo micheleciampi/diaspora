@@ -1,12 +1,3 @@
-function decrypt(url)
-{
-	$.get(url, function(data) 
-	{
-		stringa = GibberishAES.dec(data, "ciao");
-		immagine="data:image/jpg;base64,"+stringa
-        });
-	return immagine
-}
 app.views.Content = app.views.Base.extend({
   events: {
     "click .expander": "expandPost"
@@ -17,20 +8,54 @@ jQuery.ajaxSetup({async:false});
 //console.log("large", this.model.get("author").avatar.large)
 //console.log("large", this.model.get("author").avatar)
 //console.log("autore del post", this.model.get("author").diaspora_id)
+console.log("autore del post", this.model.get("author").diaspora_id)
+
+personIdAuthor=this.model.get("person_id")
+console.log("PersonId dell'autore del post", personIdAuthor)
+
+myFriends=app.currentUser.attributes.friends
+console.log("I miei amici", myFriends)
+
+console.log("Array amici-->user_id utente", myFriends[0].contact.user_id)
+userIdPost=myFriends[0].contact.user_id
+
+
+console.log("Array amici-->person_id amico", myFriends[0].contact.person_id)
+personIdPost=myFriends[0].contact.person_id
+
+avt = app.currentUser.attributes.id
+console.log("Id dell'utente", avt)
+
+console.log("----",keyToCrypt)
+
+if(personIdAuthor==userIdPost) //se l'autore del post sono io
+{
+	decKey=keyToCrypt //decifra i dati con la chiave che uso per cifrare
+}
+else
+{
+	for(var i=0; i<myFriends.length; i++)
+	{
+		if(myFriends[i].contact.person_id==personIdAuthor)
+		{
+			decKey=myFriends[i].contact.crypted_person_password
+		}	
+	}
+}
     var photos = this.model.get("photos")
     for(var i=0;i<photos.length;i++)
     {
         if(photos[i].sizes.small.substring(0,4)=="http")
         {
-                photos[i].sizes.small=decrypt(photos[i].sizes.small)
+                photos[i].sizes.small=decrypt(photos[i].sizes.small, decKey)
         }
         if(photos[i].sizes.medium.substring(0,4)=="http")
         {
-                photos[i].sizes.medium=decrypt(photos[i].sizes.medium)
+                photos[i].sizes.medium=decrypt(photos[i].sizes.medium, decKey)
         }
         if(photos[i].sizes.large.substring(0,4)=="http")
         {
-                photos[i].sizes.large=decrypt(photos[i].sizes.large)
+                photos[i].sizes.large=decrypt(photos[i].sizes.large, decKey)
         }
     }
     jQuery.ajaxSetup({async:true});
@@ -47,7 +72,8 @@ jQuery.ajaxSetup({async:false});
 //alert(this.model.get("text"))
 //console.log("large", this.model.get("author").avatar.large)
 //console.log("large", this.model.get("author").avatar)
-console.log("autore del post", this.model.get("author").diaspora_id)
+
+
   var photos = this.model.get("photos")
   if(!photos || photos.length == 0) { return }
 

@@ -41,6 +41,20 @@
                 </div>
               </div>
 
+ <div class="control-group">
+                <label class="control-label" for="user_password">
+                  <%= t('.master_password') %>
+                </label>
+
+                <div class="controls">
+                  <%= f.password_field :master_key2, :placeholder => "••••••••", :onChange =>"setRandomKey()",:title => t('registrations.new.master_password'), :required => true, :pattern => "......+" %>
+                  <%= f.hidden_field :master_key, :title => t('registrations.new.master_password'), :required => true, :pattern => "......+" %>
+
+                </div>
+              </div>
+
+
+
               <div class="control-group">
                 <label class="control-label" for="user_password">
                   <%= t('.password') %>
