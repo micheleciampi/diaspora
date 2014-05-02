@@ -26,9 +26,12 @@ personIdPost=myFriends[0].contact.person_id
 avt = app.currentUser.attributes.id
 console.log("Id dell'utente", avt)
 
-console.log("----",keyToCrypt)
+console.log("keyToCrypt",keyToCrypt)
 
-if(personIdAuthor==userIdPost) //se l'autore del post sono io
+var decKey
+console.log("Idutente", avt);
+console.log("IdAutore", userIdPost);
+if(avt==personIdAuthor) //se l'autore del post sono io
 {
 	decKey=keyToCrypt //decifra i dati con la chiave che uso per cifrare
 }
@@ -38,7 +41,14 @@ else
 	{
 		if(myFriends[i].contact.person_id==personIdAuthor)
 		{
-			decKey=myFriends[i].contact.crypted_person_password
+			try
+			{
+				decKey=GibberishAES.dec(myFriends[i].contact.crypted_person_password, keyToCrypt)
+			}
+			catch(Exc)
+			{
+				console.log("Master key dell'utente errata")
+			}
 		}	
 	}
 }
