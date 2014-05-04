@@ -1,3 +1,4 @@
+var keyToCrypt
 app.views.Base = Backbone.View.extend({
 
   initialize : function(options) {
@@ -17,8 +18,10 @@ app.views.Base = Backbone.View.extend({
 
   defaultPresenter : function(){
     var modelJson = this.model && this.model.attributes ? _.clone(this.model.attributes) : {}
-console.log("-->", app.currentUser.attributes.xx)
 cryptedKey=app.currentUser.attributes.master_key
+personIdUtente=app.currentUser.attributes.id
+
+console.log("---->Person id dell'utente", personIdUtente)
 console.log("---->Chiave cifrata", cryptedKey)
 master_key=localStorage.getItem('master_key')
 keyToCrypt= GibberishAES.dec(cryptedKey, master_key)

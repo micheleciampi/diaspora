@@ -19,7 +19,7 @@ Diaspora::Application.routes.draw do
   get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
   resources :reshares
-
+  resources :friends_passwords #yyy
   resources :status_messages, :only => [:new, :create]
 
   resources :posts do

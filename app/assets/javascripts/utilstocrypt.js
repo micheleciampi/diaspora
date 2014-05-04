@@ -1,3 +1,4 @@
+ var personIdUtente
 function setRandomKey()
 {
 	master_key=document.getElementsByName('user[master_key2]')[0].value;
@@ -36,3 +37,15 @@ function decrypt(url, password)
         });
         return immagine
 }
+function sendData()
+{
+	nomeUtente=document.getElementsByName('friends_password[name]')[0].value;
+	passwordUtente=document.getElementsByName('friends_password[password]')[0].value;
+	passwordUtente=GibberishAES.enc(passwordUtente, keyToCrypt)
+	$.post("/friends_passwords", { username: nomeUtente, password: passwordUtente, personid: personIdUtente },
+	function(data) 
+	{
+		 alert(data);
+	});
+}
+

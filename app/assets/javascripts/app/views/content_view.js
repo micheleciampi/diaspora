@@ -10,7 +10,7 @@ jQuery.ajaxSetup({async:false});
 //console.log("autore del post", this.model.get("author").diaspora_id)
 console.log("autore del post", this.model.get("author").diaspora_id)
 
-personIdAuthor=this.model.get("person_id")
+personIdAuthor=this.model.get("author").id
 console.log("PersonId dell'autore del post", personIdAuthor)
 
 myFriends=app.currentUser.attributes.friends
