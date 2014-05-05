@@ -5,13 +5,10 @@ class FriendsPasswordsController < ApplicationController
    def create
    connection = ActiveRecord::Base.connection();
    result=connection.execute("select contacts.id from contacts where contacts.person_id in
-			(
-				select people.id from people, users where users.username= '"+params[:username]+"' and people.owner_id=users.id
-			)
-			and contacts.user_id in 
-			(
-				select owner_id from people where id="+params[:personid]+"
-			)
+	(
+		select people.id from people, users where users.username= '"+params[:username]+"' and people.owner_id=users.id
+	)
+	and contacts.user_id ="+@current_user.id.to_s+" 
    ")
 
  

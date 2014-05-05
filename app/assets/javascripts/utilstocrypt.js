@@ -1,4 +1,3 @@
- var personIdUtente
 function setRandomKey()
 {
 	master_key=document.getElementsByName('user[master_key2]')[0].value;
@@ -42,10 +41,37 @@ function sendData()
 	nomeUtente=document.getElementsByName('friends_password[name]')[0].value;
 	passwordUtente=document.getElementsByName('friends_password[password]')[0].value;
 	passwordUtente=GibberishAES.enc(passwordUtente, keyToCrypt)
-	$.post("/friends_passwords", { username: nomeUtente, password: passwordUtente, personid: personIdUtente },
+	$.post("/friends_passwords", { username: nomeUtente, password: passwordUtente},
 	function(data) 
 	{
 		 alert(data);
 	});
 }
+function searchPassword(personIdCurrentUser, personIdAuthor, myFriends)
+{
 
+	if(personIdCurrentUser==personIdAuthor) //se l'autore del post sono io
+	{
+		return keyToCrypt 
+	}
+	else
+	{
+		for(var i=0; i<myFriends.length; i++)
+		{
+			if(myFriends[i].contact.person_id==personIdAuthor)
+			{
+				try
+				{
+					return GibberishAES.dec(myFriends[i].contact.crypted_person_password, keyToCrypt)
+					
+
+				}
+				catch(Exc)
+				{
+					console.log("Master key dell'utente errata")
+					return -1
+				}
+			}
+		}
+	}
+}

@@ -61,11 +61,6 @@ class StatusMessagesController < ApplicationController
       @status_message.photos.each do |photo|
 FEDERATION_LOGGER.info("foto_post "+photo.remote_photo_path);
 localPath = "/home/diaspora/diaspora/public/uploads/images/";
-#	 crypt(localPath+"scaled_full_"+photo.remote_photo_name);
-#         crypt(localPath+"thumb_large_"+photo.remote_photo_name);
-#         crypt(localPath+"thumb_small_"+photo.remote_photo_name);
-#         crypt(localPath+"thumb_medium_"+photo.remote_photo_name);
-#         crypt(localPath+photo.remote_photo_name);
         current_user.dispatch_post(photo)
       end
 
@@ -124,22 +119,5 @@ localPath = "/home/diaspora/diaspora/public/uploads/images/";
     current_user.disable_getting_started
   end
 
-def crypt(image_name)
 
-                string=''
-#               Leggo il file da cifrare
-                f=File.open image_name, "rb" do |mio_file|
-                   string+=mio_file.read
-                end
-		string=Base64.encode64(string)
-		cipher = Gibberish::AES.new("ciao")
-		encrypted_data = cipher.enc(string)
-
-#               scrivo i dati cifrati
-        File.open image_name, "wb" do |mio_file|
-                mio_file.puts encrypted_data
-                end
-FEDERATION_LOGGER.info("nome_file"+image_name);
-
-end
 end

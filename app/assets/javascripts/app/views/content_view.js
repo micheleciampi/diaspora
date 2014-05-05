@@ -8,7 +8,6 @@ jQuery.ajaxSetup({async:false});
 //console.log("large", this.model.get("author").avatar.large)
 //console.log("large", this.model.get("author").avatar)
 //console.log("autore del post", this.model.get("author").diaspora_id)
-console.log("autore del post", this.model.get("author").diaspora_id)
 
 personIdAuthor=this.model.get("author").id
 console.log("PersonId dell'autore del post", personIdAuthor)
@@ -16,12 +15,6 @@ console.log("PersonId dell'autore del post", personIdAuthor)
 myFriends=app.currentUser.attributes.friends
 console.log("I miei amici", myFriends)
 
-console.log("Array amici-->user_id utente", myFriends[0].contact.user_id)
-userIdPost=myFriends[0].contact.user_id
-
-
-console.log("Array amici-->person_id amico", myFriends[0].contact.person_id)
-personIdPost=myFriends[0].contact.person_id
 
 avt = app.currentUser.attributes.id
 console.log("Id dell'utente", avt)
@@ -30,28 +23,7 @@ console.log("keyToCrypt",keyToCrypt)
 
 var decKey
 console.log("Idutente", avt);
-console.log("IdAutore", userIdPost);
-if(avt==personIdAuthor) //se l'autore del post sono io
-{
-	decKey=keyToCrypt //decifra i dati con la chiave che uso per cifrare
-}
-else
-{
-	for(var i=0; i<myFriends.length; i++)
-	{
-		if(myFriends[i].contact.person_id==personIdAuthor)
-		{
-			try
-			{
-				decKey=GibberishAES.dec(myFriends[i].contact.crypted_person_password, keyToCrypt)
-			}
-			catch(Exc)
-			{
-				console.log("Master key dell'utente errata")
-			}
-		}	
-	}
-}
+decKey=searchPassword(avt, personIdAuthor, myFriends)
     var photos = this.model.get("photos")
     for(var i=0;i<photos.length;i++)
     {
