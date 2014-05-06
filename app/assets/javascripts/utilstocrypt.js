@@ -44,7 +44,17 @@ function sendData()
 	$.post("/friends_passwords", { username: nomeUtente, password: passwordUtente},
 	function(data) 
 	{
-		 alert(data);
+		if(data=="ok")
+		{
+			alert("Password inserita correttamente")
+			document.getElementsByName('friends_password[name]')[0].value=""
+			document.getElementsByName('friends_password[password]')[0].value=""
+		}
+		else
+		{
+			alert("Forse "+nomeUtente+" non e' ancora tuo amico");
+
+		}
 	});
 }
 function searchPassword(personIdCurrentUser, personIdAuthor, myFriends)

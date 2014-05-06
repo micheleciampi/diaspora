@@ -1,7 +1,6 @@
-<h1>nfad</h1>
+<h1>Password of friend to decrypt data</h1>
    <%= form_for :friends_password, url: friends_passwords_path do |f| %>
    <p>
-       <%= button_tag "PressMe", type: :button, :onClick => "sendData()" %>
        <%= f.label :nome_utente %><br>
        <%= f.text_field :name %>
    </p>
@@ -11,4 +10,7 @@
       <%= f.text_field :password %>
   </p>
   
+   <p>
+       <%= button_tag "Ok", :class => "new-btn", type: :button, :onClick => "sendData()" %>
+   </p>
   <%end%>
