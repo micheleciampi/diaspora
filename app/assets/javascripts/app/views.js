@@ -1,4 +1,5 @@
 var keyToCrypt
+var master_key
 app.views.Base = Backbone.View.extend({
 
   initialize : function(options) {

@@ -40,7 +40,8 @@ function sendData()
 {
 	nomeUtente=document.getElementsByName('friends_password[name]')[0].value;
 	passwordUtente=document.getElementsByName('friends_password[password]')[0].value;
-	passwordUtente=GibberishAES.enc(passwordUtente, keyToCrypt)
+	passwordUtente=GibberishAES.enc(passwordUtente, master_key)
+	console.log("dati cifrati con masterKey: ", master_key)
 	$.post("/friends_passwords", { username: nomeUtente, password: passwordUtente},
 	function(data) 
 	{
@@ -72,7 +73,7 @@ function searchPassword(personIdCurrentUser, personIdAuthor, myFriends)
 			{
 				try
 				{
-					return GibberishAES.dec(myFriends[i].contact.crypted_person_password, keyToCrypt)
+					return GibberishAES.dec(myFriends[i].contact.crypted_person_password, master_key)
 					
 
 				}
