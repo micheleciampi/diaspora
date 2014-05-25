@@ -25,7 +25,7 @@ personIdUtente=app.currentUser.attributes.id
 console.log("---->Person id dell'utente", personIdUtente)
 console.log("---->Chiave cifrata", cryptedKey)
 master_key=localStorage.getItem('master_key')
-keyToCrypt= GibberishAES.dec(cryptedKey, master_key)
+keyToCrypt = CryptoJS.AES.decrypt(cryptedKey, master_key).toString(CryptoJS.enc.Utf8);
 console.log("---->Master key", master_key)
 console.log("---->Chiave per cifrare i dati", keyToCrypt)
 

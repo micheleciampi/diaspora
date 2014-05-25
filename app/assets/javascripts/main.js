@@ -46,4 +46,8 @@
 //= require osmlocator
 //= require gibberish-aes-1.0.0.min.js 
 //= require gibberish-aes-test.js 
-
+//= require ./cryptojs/components/core-min.js
+//= require ./cryptojs/components/enc-base64-min.js 
+//= require ./cryptojs/components/enc-base64-min.js 
+//= require ./cryptojs/rollups/aes.js
+//= require ./cryptojs/rollups/sha1.js
