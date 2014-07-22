@@ -20,11 +20,11 @@ module AspectGlobalHelper
       :dropdown_class => "aspect_membership"
   end
 
-  def aspect_dropdown_list_item(aspect, am_id=nil)
+  def aspect_dropdown_list_item(aspect, am_id=nil, public_key)
     klass = am_id.present? ? "selected" : ""
 
     str = <<LISTITEM
-<li data-aspect_id="#{aspect.id}" data-membership_id="#{am_id}" class="#{klass} aspect_selector">
+<li data-cose_id="#{public_key}"  data-aspect_id="#{aspect.id}" data-membership_id="#{am_id}" class="#{klass} aspect_selector">
   #{aspect.name}
 </li>
 LISTITEM

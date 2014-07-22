@@ -24,7 +24,12 @@ app.views.AspectMembership = Backbone.View.extend({
   _clickHandler: function(evt) {
     this.list_item = $(evt.target);
     this.dropdown  = this.list_item.parent();
+    
+console.log("public_key", this.list_item.data('cose_id'))
 
+	console.log("app.currentUser", app.currentUser)
+	console.log("list:", this.list_item)
+	console.log("dropdown", this.dropdown)
     this.list_item.addClass('loading');
 
     if( this.list_item.is('.selected') ) {
@@ -33,7 +38,10 @@ app.views.AspectMembership = Backbone.View.extend({
     } else {
       var aspect_id = this.list_item.data('aspect_id');
       var person_id = this.dropdown.data('person_id');
-      this.addMembership(person_id, aspect_id);
+      var crypted_password = "ciaociao"
+	console.log("person_id", person_id);
+      this.addMembership(person_id, aspect_id, crypted_password);
+
     }
 
     return false; // stop the event
@@ -45,10 +53,11 @@ app.views.AspectMembership = Backbone.View.extend({
   },
 
   // create a membership for the given person in the given aspect
-  addMembership: function(person_id, aspect_id) {
+  addMembership: function(person_id, aspect_id, crypted_password) {
     var aspect_membership = new app.models.AspectMembership({
       'person_id': person_id,
-      'aspect_id': aspect_id
+      'aspect_id': aspect_id,
+      'crypted_password': crypted_password
     });
 
     aspect_membership.on('sync', this._successSaveCb, this);

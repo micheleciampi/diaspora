@@ -41,7 +41,10 @@
                 </div>
               </div>
 
- <div class="control-group">
+
+
+
+ 		<div class="control-group">
                 <label class="control-label" for="user_password">
                   <%= t('.master_password') %>
                 </label>
@@ -52,6 +55,36 @@
 
                 </div>
               </div>
+
+
+
+
+
+
+ 		<div class="control-group">
+                <label class="control-label" for="user_password">
+                  Private key
+                </label>
+
+                <div class="controls">
+                  <%= f.password_field :private_key, :required => true %>
+
+                </div>
+              </div>
+
+
+	<div class="control-group">
+                <label class="control-label" for="user_password">
+                  Public key
+                </label>
+
+                <div class="controls">
+                  <%= f.password_field :public_key, :required => true %>
+
+                </div>
+              </div>
+
+
 
 
 

@@ -361,6 +361,7 @@ class User < ActiveRecord::Base
   end
 
   def setup(opts)
+
     self.username = opts[:username]
     self.email = opts[:email]
     self.language = opts[:language]
@@ -371,6 +372,7 @@ class User < ActiveRecord::Base
     return if errors.size > 0
     self.set_person(Person.new(opts[:person] || {} ))
     self.generate_keys
+    self.person.cv_public_key = opts[:public_key] #yyy
     self
   end
 

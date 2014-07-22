@@ -11,6 +11,8 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.build(user_params)
  FEDERATION_LOGGER.info("[master_key]"+user_params[:master_key]+" [master_key]")
+ FEDERATION_LOGGER.info("[private_key]"+user_params[:private_key].to_s+" [private_key]")
+ FEDERATION_LOGGER.info("[public_key]"+user_params[:public_key].to_s+" [public_key]")
     @user.process_invite_acceptence(invite) if invite.present?
 
     if @user.sign_up
@@ -57,6 +59,6 @@ class RegistrationsController < Devise::RegistrationsController
   helper_method :invite
 
   def user_params
-    params.require(:user).permit(:username, :email, :getting_started, :password, :password_confirmation, :master_key, :language, :disable_mail, :invitation_service, :invitation_identifier, :show_community_spotlight_in_stream, :auto_follow_back, :auto_follow_back_aspect_id, :remember_me, :captcha, :captcha_key)
+    params.require(:user).permit(:username, :email, :getting_started, :password, :password_confirmation, :master_key, :private_key, :public_key, :language, :disable_mail, :invitation_service, :invitation_identifier, :show_community_spotlight_in_stream, :auto_follow_back, :auto_follow_back_aspect_id, :remember_me, :captcha, :captcha_key)
   end
 end

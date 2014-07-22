@@ -22,6 +22,7 @@ $(document).ready(function() {
   });
 
   $('form.edit_aspect').live('ajax:success', function(evt, data, status, xhr) {
+	console.log(data);
     updateAspectName(data['name']);
     updatePageAspectName( data['id'], data['name'] );
     toggleAspectTitle();
@@ -51,6 +52,9 @@ _.extend(app.tmp.ContactAspectsBox.prototype, {
       'person_id': el.data('person_id'),
       'aspect_id': el.data('aspect_id')
     });
+	
+
+	
 
     aspect_membership.on('sync', this._successSaveCb, this);
     aspect_membership.on('error', function() {
