@@ -25,8 +25,7 @@ app.views.AspectMembership = Backbone.View.extend({
     this.list_item = $(evt.target);
     this.dropdown  = this.list_item.parent();
     
-console.log("public_key", this.list_item.data('cose_id'))
-
+	console.log("public_key", this.list_item.data('cose_id'))
 	console.log("app.currentUser", app.currentUser)
 	console.log("list:", this.list_item)
 	console.log("dropdown", this.dropdown)
@@ -38,7 +37,10 @@ console.log("public_key", this.list_item.data('cose_id'))
     } else {
       var aspect_id = this.list_item.data('aspect_id');
       var person_id = this.dropdown.data('person_id');
-      var crypted_password = "ciaociao"
+      var public_key = this.list_item.data('cose_id');
+      var crypted_password = cryptico.encrypt(keyToCrypt, public_key).cipher;
+
+	console.log("my password crypted with public key", crypted_password);
 	console.log("person_id", person_id);
       this.addMembership(person_id, aspect_id, crypted_password);
 

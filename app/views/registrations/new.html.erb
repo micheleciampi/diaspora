@@ -52,41 +52,11 @@
                 <div class="controls">
                   <%= f.password_field :master_key2, :placeholder => "••••••••", :onChange =>"setRandomKey()",:title => t('registrations.new.master_password'), :required => true, :pattern => "......+" %>
                   <%= f.hidden_field :master_key, :title => t('registrations.new.master_password'), :required => true, :pattern => "......+" %>
+                  <%= f.hidden_field :private_key, :required => true %>
+                  <%= f.hidden_field :public_key, :required => true %>
 
                 </div>
               </div>
-
-
-
-
-
-
- 		<div class="control-group">
-                <label class="control-label" for="user_password">
-                  Private key
-                </label>
-
-                <div class="controls">
-                  <%= f.password_field :private_key, :required => true %>
-
-                </div>
-              </div>
-
-
-	<div class="control-group">
-                <label class="control-label" for="user_password">
-                  Public key
-                </label>
-
-                <div class="controls">
-                  <%= f.password_field :public_key, :required => true %>
-
-                </div>
-              </div>
-
-
-
-
 
               <div class="control-group">
                 <label class="control-label" for="user_password">

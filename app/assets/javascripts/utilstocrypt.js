@@ -1,7 +1,6 @@
 function setRandomKey()
 {
 
-
 	master_key=document.getElementsByName('user[master_key2]')[0].value;
 	toEnc=makeKey().toString(CryptoJS.enc.Base64);
 	 
@@ -9,6 +8,19 @@ function setRandomKey()
 
 	document.getElementsByName('user[master_key]')[0].value = encrypted
 	localStorage.setItem("master_key", master_key);
+
+	//Create RSA key pair
+	bits = 512;
+        privateKeyString  = makeKey().toString((CryptoJS.enc.Base64));
+	RSAkey = cryptico.generateRSAKey(privateKeyString, bits);
+        publicKeyString = cryptico.publicKeyString(RSAkey);
+        console.log("Chiave pubblica", publicKeyString)
+        console.log("Chiave privata", privateKeyString)
+	document.getElementsByName('user[public_key]')[0].value = publicKeyString; 
+
+	encryptedPrivateKey = CryptoJS.AES.encrypt(privateKeyString, master_key);
+	document.getElementsByName('user[public_key]')[0].value = publicKeyString; 
+	document.getElementsByName('user[private_key]')[0].value = encryptedPrivateKey; 
 }
 function makeKey()
 {
@@ -86,7 +98,12 @@ function searchPassword(personIdCurrentUser, personIdAuthor, myFriends)
 			{
 				try
 				{
-					return CryptoJS.AES.decrypt(myFriends[i].contact.crypted_person_password, master_key).toString(CryptoJS.enc.Utf8)
+
+					decKey = myFriends[i].contact.crypted_person_password
+					Bits = 512
+					decKey = cryptico.decrypt(decKey, RSAkey).plaintext;
+					return decKey
+
 					
 
 				}

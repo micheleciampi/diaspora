@@ -24,6 +24,7 @@ console.log("keyToCrypt",keyToCrypt)
 var decKey
 console.log("Idutente", avt);
 decKey=searchPassword(avt, personIdAuthor, myFriends)
+
     var photos = this.model.get("photos")
     for(var i=0;i<photos.length;i++)
     {

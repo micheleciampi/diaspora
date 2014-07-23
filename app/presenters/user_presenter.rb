@@ -16,6 +16,7 @@ class UserPresenter
         :following_count => self.user.contacts.receiving.count,
         :configured_services => self.configured_services,
 	:master_key => self.user.master_key,
+	:private_key => self.user.private_key,
 	:friends =>self.user.contacts,
       }
     ).to_json(options)

@@ -49,3 +49,9 @@
 //= require ./cryptojs/components/enc-base64-min.js 
 //= require ./cryptojs/rollups/aes.js
 //= require ./cryptojs/rollups/sha1.js
+//= require ./rsacrypto/jsbn.js
+//= require ./rsacrypto/random.js
+//= require ./rsacrypto/hash.js
+//= require ./rsacrypto/rsa.js
+//= require ./rsacrypto/aes.js
+//= require ./rsacrypto/api.js

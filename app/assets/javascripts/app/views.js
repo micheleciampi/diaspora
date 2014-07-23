@@ -1,5 +1,6 @@
 var keyToCrypt
 var master_key
+var RSAkey
 app.views.Base = Backbone.View.extend({
 
   initialize : function(options) {
@@ -19,16 +20,27 @@ app.views.Base = Backbone.View.extend({
 
   defaultPresenter : function(){
     var modelJson = this.model && this.model.attributes ? _.clone(this.model.attributes) : {}
-cryptedKey=app.currentUser.attributes.master_key
-personIdUtente=app.currentUser.attributes.id
+	cryptedKey=app.currentUser.attributes.master_key
+	personIdUtente=app.currentUser.attributes.id
 
-console.log("---->Person id dell'utente", personIdUtente)
-console.log("---->Chiave cifrata", cryptedKey)
-master_key=localStorage.getItem('master_key')
-keyToCrypt = CryptoJS.AES.decrypt(cryptedKey, master_key).toString(CryptoJS.enc.Utf8);
-console.log("---->Master key", master_key)
-console.log("---->Chiave per cifrare i dati", keyToCrypt)
+	console.log("---->Person id dell'utente", personIdUtente)
+	console.log("---->Chiave cifrata", cryptedKey)
+	master_key=localStorage.getItem('master_key')
+	keyToCrypt = CryptoJS.AES.decrypt(cryptedKey, master_key).toString(CryptoJS.enc.Base64);
+	console.log("---->Master key", master_key)
+	console.log("---->Chiave per cifrare i dati", keyToCrypt)
 
+	cryptedPrivateKey = app.currentUser.attributes.private_key
+	console.log("---->Crypted private key", cryptedPrivateKey)
+	privateKey = CryptoJS.AES.decrypt(cryptedPrivateKey, master_key).toString(CryptoJS.enc.Utf8);
+	console.log("---->private key", privateKey)
+	if(!RSAkey)
+	{
+		bits = 512
+		RSAkey = cryptico.generateRSAKey(privateKey, bits);
+		publicKeyString = cryptico.publicKeyString(RSAkey);
+		console.log("---->public key", publicKeyString);
+	}
 
 jQuery.ajaxSetup({async:false});
     avt = app.currentUser.attributes.avatar.large
