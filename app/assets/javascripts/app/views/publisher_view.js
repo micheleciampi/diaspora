@@ -120,6 +120,12 @@ app.views.Publisher = Backbone.View.extend({
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
 
+    
+    if(serializedForm["aspect_ids[]"] != "public")
+    {
+	    var postText = serializedForm["status_message[text]"]
+	    serializedForm["status_message[text]"] = encryptText(keyToCrypt, postText) 
+    }
     statusMessage.save({
       "status_message" : {
         "text" : serializedForm["status_message[text]"]
@@ -262,6 +268,11 @@ app.views.Publisher = Backbone.View.extend({
     this.el_input.val('');
     this.el_hiddenInput.val('');
 
+    var aspectButton = document.getElementsByClassName("button_aspect_disabled")[0]; //enable button_aspect when clear form
+    if(aspectButton != undefined)
+    {
+    	aspectButton.className="button toggle publisher"
+    }
     // remove mentions
     this.el_input.mentionsInput('reset');
 

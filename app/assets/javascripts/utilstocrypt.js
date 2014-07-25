@@ -1,3 +1,25 @@
+function encryptText(key, text)
+{
+	binaryKeyToCrypt = CryptoJS.enc.Base64.parse(key);
+	console.log(binaryKeyToCrypt )
+    return CryptoJS.AES.encrypt(text, binaryKeyToCrypt, {'iv':makeIv()}).toString()	
+}
+function decryptText(key, text)
+{
+	try
+	{
+	    decText = CryptoJS.AES.decrypt(text,  CryptoJS.enc.Base64.parse(key), {'iv':makeIv()}).toString(CryptoJS.enc.Utf8)	
+		if(decText == "")
+		{
+			return text;
+		}
+		return decText
+	}
+	catch(Exc)
+	{
+		return text
+	}
+}
 function setRandomKey()
 {
 
@@ -50,12 +72,20 @@ function decrypt(url, b64password)
 		try
 		{
 			stringa = CryptoJS.AES.decrypt(data,  CryptoJS.enc.Base64.parse(b64password), {'iv':makeIv()}).toString(CryptoJS.enc.Utf8)
-			immagine="data:image/jpg;base64, "+stringa
+			if(stringa =="")
+			{
+				immagine = url
+			}
+			else
+			{
+				immagine="data:image/jpg;base64, "+stringa
+				console.log("Non sono andato in errore e ho decifrato", stringa)
+			}
 		}
 		catch(Exc)
 		{
 			console.log("Uncorrect key used to decrypt data")
-			return immagine=data;
+			return immagine=url;
 		}
         });
         return immagine

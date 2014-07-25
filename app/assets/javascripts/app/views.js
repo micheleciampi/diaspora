@@ -41,25 +41,7 @@ app.views.Base = Backbone.View.extend({
 		publicKeyString = cryptico.publicKeyString(RSAkey);
 		console.log("---->public key", publicKeyString);
 	}
-
-jQuery.ajaxSetup({async:false});
-    avt = app.currentUser.attributes.avatar.large
-    if(avt.substring(0, 4)=="http")
-	{
-		app.currentUser.attributes.avatar.large = decrypt(avt, keyToCrypt)
-	}
-    avt = app.currentUser.attributes.avatar.medium
-    if(avt.substring(0, 4)=="http")
-	{
-		app.currentUser.attributes.avatar.medium = decrypt(avt, keyToCrypt) 
-	}
-    avt = app.currentUser.attributes.avatar.small
-    if(avt.substring(0, 4)=="http")
-	{
-		app.currentUser.attributes.avatar.small = decrypt(avt, keyToCrypt)
-	}
-jQuery.ajaxSetup({async:true});
-    return _.extend(modelJson, {
+      return _.extend(modelJson, {
       current_user : app.currentUser.attributes,
       loggedIn : app.currentUser.authenticated()
     });

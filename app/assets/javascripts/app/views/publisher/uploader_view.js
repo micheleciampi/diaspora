@@ -16,9 +16,8 @@ app.views.PublisherUploader = Backbone.View.extend({
       button:  this.el,
 
       //debug: true,
-
       action: '/photos',
-      params: { photo: { pending: true }},
+      params: { photo: { pending: true }, 'crypted_mode': false},
       allowedExtensions: this.allowedExtensions,
       sizeLimit: this.sizeLimit,
       messages: {
@@ -44,6 +43,16 @@ app.views.PublisherUploader = Backbone.View.extend({
   },
 
   submitHandler: function(id, fileName) {
+    
+    aspectId = document.getElementsByName("aspect_ids[]")[0].value;
+    if(aspectId == "public")
+    {
+       this.uploader._options.params['crypted_mode'] = false
+    }
+    else
+    {
+       this.uploader._options.params['crypted_mode'] = true
+    }
     this.$el.addClass('loading');
     this._addPhotoPlaceholder();
   },
@@ -80,7 +89,7 @@ app.views.PublisherUploader = Backbone.View.extend({
   // add the id to the publishers form
   _addFinishedPhoto: function(id, url) {
     var publisher = this.publisher;
-
+	
     // add form input element
     publisher.$('.content_creation form').append(
       '<input type="hidden", value="'+id+'" name="photos[]" />'
@@ -88,13 +97,26 @@ app.views.PublisherUploader = Backbone.View.extend({
 
     // replace placeholder
     var placeholder = publisher.el_photozone.find('li.loading').first();
+    var prevImage = url
+    var aspectButton = document.getElementsByClassName("button toggle publisher")[0]; //disable button_aspect 
+    if(aspectButton != undefined)
+    {
+	    aspectButton.className="button_aspect_disabled"
+    }
+ 
+    if(this.uploader._options.params['crypted_mode'])
+    {
+	url = newPhoto;
+    }	
+     
+
     placeholder
       .removeClass('loading')
       .append(
         '<div class="x">X</div>'+
         '<div class="circle"></div>'
        )
-     .find('img').attr({'src': newPhoto, 'data-id': id});
+     .find('img').attr({'src': url, 'data-id': id});
 
     // no more placeholders? enable buttons
     if( publisher.el_photozone.find('li.loading').length == 0 ) {

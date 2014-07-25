@@ -42,6 +42,10 @@ decKey=searchPassword(avt, personIdAuthor, myFriends)
         }
     }
     jQuery.ajaxSetup({async:true});
+	console.log("Testo del post", this.model.get("text")) //decrypt post's text
+ 
+    var postText = this.model.get("text");
+    this.model.set("text", decryptText(decKey, postText));
     return _.extend(this.defaultPresenter(), {
       text : app.helpers.textFormatter(this.model.get("text"), this.model),
       largePhoto : this.largePhoto(),

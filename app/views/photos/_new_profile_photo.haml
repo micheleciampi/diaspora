@@ -8,7 +8,7 @@
     function createUploader(){
      var uploader = new qq.FileUploaderBasic({
          element: document.getElementById('file-upload'),
-         params: {'photo' : {'pending' : true, 'aspect_ids' : "all", 'set_profile_photo': true}},
+         params: {'photo' : {'pending' : true, 'aspect_ids' : "all", 'set_profile_photo': true}, 'crypted_mode': false},
          allowedExtensions: ['jpg', 'jpeg', 'png'],
          action: "#{photos_path}",
          button: document.getElementById('file-upload'),
@@ -50,8 +50,8 @@
           }
 
           $("#profile_photo_upload").find(".avatar").removeClass('loading');
-          $("#profile_photo_upload").find(".avatar").attr("src",newPhoto);
-          $(".avatar[data-person_id=#{current_user.person.id}]").attr("src",newPhoto);
+          $("#profile_photo_upload").find(".avatar").attr("src",url);
+          $(".avatar[data-person_id=#{current_user.person.id}]").attr("src",url);
          }
      });
     }
