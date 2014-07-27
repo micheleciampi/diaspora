@@ -10,20 +10,28 @@ jQuery.ajaxSetup({async:false});
 //console.log("autore del post", this.model.get("author").diaspora_id)
 
 personIdAuthor=this.model.get("author").id
+console.log("Impor", this.model.get("key_to_read"))
 console.log("PersonId dell'autore del post", personIdAuthor)
 
 myFriends=app.currentUser.attributes.friends
 console.log("I miei amici", myFriends)
 
 
-avt = app.currentUser.attributes.id
-console.log("Id dell'utente", avt)
+personIdCurrentUser = app.currentUser.attributes.id
 
 console.log("keyToCrypt",keyToCrypt)
 
 var decKey
-console.log("Idutente", avt);
-decKey=searchPassword(avt, personIdAuthor, myFriends)
+if(personIdCurrentUser==personIdAuthor) //se l'autore del post sono io
+{
+                decKey = keyToCrypt
+}
+else
+{
+	decKey=this.model.get("key_to_read")
+	Bits = 512
+	decKey = cryptico.decrypt(decKey, RSAkey).plaintext;
+}
 
     var photos = this.model.get("photos")
     for(var i=0;i<photos.length;i++)

@@ -7,6 +7,8 @@ class PostPresenter
   def initialize(post, current_user = nil)
     @post = post
     @current_user = current_user
+     FEDERATION_LOGGER.info("[print_post]"+post.public.to_s+" [print]")
+     FEDERATION_LOGGER.info("[print_post]"+post.post_type.to_s+" [print]")
   end
 
   def self.collection_json(collection, current_user)
@@ -36,7 +38,7 @@ class PostPresenter
         :root => root,
         :title => title,
         :address => @post.address,
-
+	:key_to_read => find_key,
         :interactions => {
             :likes => [user_like].compact,
             :reshares => [user_reshare].compact,
@@ -47,6 +49,18 @@ class PostPresenter
     }
   end
 
+  def find_key
+     post_crypted_key =""
+     #find key to decrypt post
+     connection = ActiveRecord::Base.connection();
+     post_key = connection.execute("select crypted_person_password from contacts where user_id ="+@current_user.id.to_s+" and person_id = "+@post.author.id.to_s+"
+     ");
+	post_key.each do |key|
+	 	post_crypted_key = key[0]
+	end
+     #end save
+	post_crypted_key
+  end
   def title
     @post.text.present? ? post_page_title(@post) : I18n.translate('posts.presenter.title', :name => @post.author_name)
   end

@@ -7,6 +7,8 @@ class Photo < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
+  attr_accessor :key_to_read
+
   # NOTE API V1 to be extracted
   acts_as_api
   api_accessible :backbone do |t|
@@ -14,10 +16,11 @@ class Photo < ActiveRecord::Base
     t.add :guid
     t.add :created_at
     t.add :author
+    t.add :key_to_read
     t.add lambda { |photo|
       { :small => photo.url(:thumb_small),
         :medium => photo.url(:thumb_medium),
-        :large => photo.url(:scaled_full) }
+        :large => photo.url(:scaled_full)}
     }, :as => :sizes
     t.add lambda { |photo|
       { :height => photo.height,
@@ -50,6 +53,7 @@ class Photo < ActiveRecord::Base
     queue_processing_job if self.author.local?
   end
 
+
   def clear_empty_status_message
     if self.status_message_guid && self.status_message.text_and_photos_blank?
       self.status_message.destroy
@@ -73,7 +77,6 @@ class Photo < ActiveRecord::Base
     photo.public = params[:public] if params[:public]
     photo.pending = params[:pending] if params[:pending]
     photo.diaspora_handle = photo.author.diaspora_handle
-
     photo.random_string = SecureRandom.hex(10)
 
     if params[:user_file]

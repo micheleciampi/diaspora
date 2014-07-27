@@ -120,10 +120,10 @@ app.views.Publisher = Backbone.View.extend({
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
 
-    
-    if(serializedForm["aspect_ids[]"] != "public")
+   
+    var postText = serializedForm["status_message[text]"]
+    if(serializedForm["aspect_ids[]"] != "public" && postText !="")
     {
-	    var postText = serializedForm["status_message[text]"]
 	    serializedForm["status_message[text]"] = encryptText(keyToCrypt, postText) 
     }
     statusMessage.save({

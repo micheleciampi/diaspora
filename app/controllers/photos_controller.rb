@@ -33,9 +33,20 @@ class PhotosController < ApplicationController
 
       @posts = current_user.photos_from(@person)
 
+
+	 FEDERATION_LOGGER.info("[size]"+@posts.length.to_s+" [print]")
+        connection = ActiveRecord::Base.connection();
+        @posts.each do |photo|
+     person_author = photo.author.id
+     if(@current_user.person_id != person_author)
+          post_key = connection.execute("select crypted_person_password from contacts where user_id ="+@current_user.id.to_s+" and person_id = "+person_author.to_s+"");
+          photo.key_to_read = post_key.first()[0]
+        end   
+      end
       respond_to do |format|
         format.all { render 'people/show' }
         format.json{ render_for_api :backbone, :json => @posts, :root => :photos }
+	
       end
 
     else

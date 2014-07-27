@@ -5,6 +5,8 @@ app.views.Photo = app.views.Base.extend({
   className : "photo loaded",
 
   initialize : function() {
+
+console.log("Model picture", this.model)
 personIdAuthor=this.model.get("author").id
 console.log("PersonId dell'autore del post", personIdAuthor)
 
@@ -15,10 +17,15 @@ avt = app.currentUser.attributes.id
 console.log("Id dell'utente", avt)
 
 console.log("keyToCrypt",keyToCrypt)
-
-var decKey
+console.log("Impor nelle foto", this.model.get("key_to_read"))
+var decKey = keyToCrypt
 console.log("Idutente", avt);
-decKey=searchPassword(avt, personIdAuthor, myFriends)
+if(avt != personIdAuthor)
+{
+	decKey=this.model.get("key_to_read")
+        Bits = 512
+        decKey = cryptico.decrypt(decKey, RSAkey).plaintext;
+}
 	console.log("----",keyToCrypt)
 	jQuery.ajaxSetup({async:false});
 	this.model.get("sizes").small=decrypt(this.model.get("sizes").small, decKey)
