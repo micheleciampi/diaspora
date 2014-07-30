@@ -60,10 +60,6 @@
           %li.image_list
             %h4
               = t('.photos')
-              .item_count
-                = "#{@photos.count}"
-            - @photos.limit(8).each do |photo|
-              = image_tag(photo.url(:thumb_small))
             %br
               = link_to t('layouts.header.view_all'),  person_photos_path(person)
   
