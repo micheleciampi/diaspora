@@ -6,32 +6,32 @@ app.views.Photo = app.views.Base.extend({
 
   initialize : function() {
 
-console.log("Model picture", this.model)
-personIdAuthor=this.model.get("author").id
-console.log("PersonId dell'autore del post", personIdAuthor)
+	if(!this.model.attributes.public)
+	{
+		personIdAuthor=this.model.get("author").id
+		personIdCurrentUser = app.currentUser.attributes.id
+		var keyToDecrypt
+		if(personIdCurrentUser==personIdAuthor) //am i the autor?
+		{
+						keyToDecrypt = keyToCrypt
+		}
+		else
+		{
+			try
+			{
+			keyToDecrypt=this.model.get("key_to_read")
+			keyToDecrypt = cryptico.decrypt(keyToDecrypt, RSAkey).plaintext;
+			}
+			catch(Exc)
+			{
+				console.log("Uncorrect RSA keys")
+			}
+		}
+		this.model.get("sizes").small=decrypt(this.model.get("sizes").small, keyToDecrypt)
+		this.model.get("sizes").medium=decrypt(this.model.get("sizes").medium, keyToDecrypt)
+		this.model.get("sizes").large=decrypt(this.model.get("sizes").largei, keyToDecrypt)
+	}
 
-myFriends=app.currentUser.attributes.friends
-console.log("I miei amici", myFriends)
-
-avt = app.currentUser.attributes.id
-console.log("Id dell'utente", avt)
-
-console.log("keyToCrypt",keyToCrypt)
-console.log("Impor nelle foto", this.model.get("key_to_read"))
-var decKey = keyToCrypt
-console.log("Idutente", avt);
-if(avt != personIdAuthor)
-{
-	decKey=this.model.get("key_to_read")
-        Bits = 512
-        decKey = cryptico.decrypt(decKey, RSAkey).plaintext;
-}
-	console.log("----",keyToCrypt)
-	jQuery.ajaxSetup({async:false});
-	this.model.get("sizes").small=decrypt(this.model.get("sizes").small, decKey)
-	this.model.get("sizes").medium=decrypt(this.model.get("sizes").medium, decKey)
-	this.model.get("sizes").large=decrypt(this.model.get("sizes").largei, decKey)
-	jQuery.ajaxSetup({async:true});
 	$(this.el).attr("id", this.model.get("guid"));
 	this.model.bind('remove', this.remove, this);
 	return this;

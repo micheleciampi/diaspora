@@ -38,6 +38,7 @@ class PhotosController < ApplicationController
      @posts.each do |photo|
 		 person_author = photo.author.id
 		 if(@current_user.person_id != person_author)
+
 			 photo_key = Contact.select(:crypted_person_password).where(
 			:person_id => @current_user.person.id.to_s,
 			:user_id =>  Person.select(:owner_id).where(
