@@ -6,6 +6,7 @@ function encryptText(key, text)
 }
 function decryptText(key, text)
 {
+
 	try
 	{
 	    decText = CryptoJS.AES.decrypt(text,  CryptoJS.enc.Base64.parse(key), {'iv':makeIv()}).toString(CryptoJS.enc.Utf8)	
@@ -25,6 +26,11 @@ function setRandomKey()
 	master_key = $('#user_master_key_client')[0].value
 	master_key_confirmation = $('#user_master_key_client_confirmation')[0].value
 
+	if(master_key.length < 6)
+	{
+		alert("Please enter a password at least 6 characters")
+		return false;
+	}
 	if(master_key != master_key_confirmation) //mettere un controllo appropriato sulla master key (da usare anche in fase di login)
 	{
 		alert("Wrong confirmation of the master key")
@@ -86,7 +92,13 @@ function logOut()
 function checkAndStoreMasterKey()
 {
 	master_key = $('#user_master_key_client')[0].value; //controllare presenza e correttezza della master_key
+	if(master_key.length < 6)
+    {
+        alert("Please enter a password at least 6 characters")
+        return false;
+    }
 	localStorage.setItem("master_key", master_key);
+	$('#user_master_key_client').attr('disabled', true)
 	return true
 }
 function decrypt(url, b64password)
