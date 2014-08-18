@@ -13,7 +13,6 @@
 	
       var form = $(this);
       var settings = window[form.attr('id')];
-	console.log("form-->", form)
       // Set up the events for the form
       form
         .submit(function() { 

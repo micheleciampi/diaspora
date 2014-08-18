@@ -38,7 +38,7 @@ class PostPresenter
         :root => root,
         :title => title,
         :address => @post.address,
-	:key_to_read => find_key,
+		:key_to_read => find_key, #yyy
         :interactions => {
             :likes => [user_like].compact,
             :reshares => [user_reshare].compact,
@@ -50,16 +50,15 @@ class PostPresenter
   end
 
   def find_key
-     post_crypted_key =""
-     #find key to decrypt post
-     connection = ActiveRecord::Base.connection();
-     post_key = connection.execute("select crypted_person_password from contacts where user_id ="+@current_user.id.to_s+" and person_id = "+@post.author.id.to_s+"
-     ");
-	post_key.each do |key|
-	 	post_crypted_key = key[0]
-	end
-     #end save
-	post_crypted_key
+	post_key = Contact.select(:crypted_person_password).where(
+		:person_id => @current_user.person.id.to_s, 
+		:user_id =>  Person.select(:owner_id).where(
+				:id => @post.author.id.to_s
+			)
+		)
+		if(post_key.size()!=0)
+			post_key.first().crypted_person_password.to_s
+		end
   end
   def title
     @post.text.present? ? post_page_title(@post) : I18n.translate('posts.presenter.title', :name => @post.author_name)

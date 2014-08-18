@@ -41,24 +41,7 @@
                 </div>
               </div>
 
-
-
-
- 		<div class="control-group">
-                <label class="control-label" for="user_password">
-                  <%= t('.master_password') %>
-                </label>
-
-                <div class="controls">
-                  <%= f.password_field :master_key2, :placeholder => "••••••••", :onChange =>"setRandomKey()",:title => t('registrations.new.master_password'), :required => true, :pattern => "......+" %>
-                  <%= f.hidden_field :master_key, :title => t('registrations.new.master_password'), :required => true, :pattern => "......+" %>
-                  <%= f.hidden_field :private_key, :required => true %>
-                  <%= f.hidden_field :public_key, :required => true %>
-
-                </div>
-              </div>
-
-              <div class="control-group">
+  <div class="control-group">
                 <label class="control-label" for="user_password">
                   <%= t('.password') %>
                 </label>
@@ -68,7 +51,7 @@
                 </div>
               </div>
 
-              <div class="control-group">
+                 <div class="control-group">
                 <label class="control-label" for="user_password_confirmation">
                   <%= t('.password_confirmation') %>
                 </label>
@@ -77,6 +60,35 @@
                   <%= f.password_field :password_confirmation, :placeholder => "••••••••", :title => t('registrations.new.enter_password_again'), :required => true, :pattern => "......+" %>
                 </div>
               </div>
+
+
+
+ 		<div class="control-group">
+                <label class="control-label" for="user_password">
+                  <%= t('.master_key_client') %>
+                </label>
+
+                <div class="controls">
+                  <%= f.password_field :master_key_client, :placeholder => "••••••••", :title => t('registrations.new.enter_password'), :pattern => "......+" %>
+                  <%= f.hidden_field   :master_key, :required => true %>
+                  <%= f.hidden_field     :private_key, :required => true %>
+                  <%= f.hidden_field_tag 'public_key', :required => true %>
+
+                </div>
+              </div>
+
+ <div class="control-group">
+                <label class="control-label" for="user_password_confirmation">
+                  <%= t('.master_key_client_confirmation') %>
+                </label>
+
+                <div class="controls">
+                  <%= f.password_field :master_key_client_confirmation, :placeholder => "••••••••", :title => t('registrations.new.enter_password_again'), :required => true, :pattern => "......+" %>
+                </div>
+              </div>
+
+
+
 
               <% if AppConfig.settings.captcha.enable? %>
                 <div class="control-group" id="captcha">
@@ -87,7 +99,7 @@
             </fieldset>
 
 
-            <%= f.submit t('.continue'), :class => "new-btn", :disable_with => t('.submitting') %>
+            <%= f.submit t('.continue'), :class => "new-btn", :disable_with => t('.submitting'), :onclick => "return setRandomKey();"  %>
         <% end %>
       </div>
     </div>

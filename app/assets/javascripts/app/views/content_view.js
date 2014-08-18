@@ -4,56 +4,49 @@ app.views.Content = app.views.Base.extend({
   },
 
   presenter : function(){
-jQuery.ajaxSetup({async:false});
-//console.log("large", this.model.get("author").avatar.large)
-//console.log("large", this.model.get("author").avatar)
-//console.log("autore del post", this.model.get("author").diaspora_id)
-
-personIdAuthor=this.model.get("author").id
-console.log("Impor", this.model.get("key_to_read"))
-console.log("PersonId dell'autore del post", personIdAuthor)
-
-myFriends=app.currentUser.attributes.friends
-console.log("I miei amici", myFriends)
 
 
-personIdCurrentUser = app.currentUser.attributes.id
 
-console.log("keyToCrypt",keyToCrypt)
+	var isPublicPost = this.model.attributes.public 
 
-var decKey
-if(personIdCurrentUser==personIdAuthor) //se l'autore del post sono io
-{
-                decKey = keyToCrypt
-}
-else
-{
-	decKey=this.model.get("key_to_read")
-	Bits = 512
-	decKey = cryptico.decrypt(decKey, RSAkey).plaintext;
-}
+	if(!isPublicPost)	
+	{
+		
+		var keyToDecrypt
+		personIdAuthor=this.model.get("author").id
+		personIdCurrentUser = app.currentUser.attributes.id
+		var keyToDecrypt
+		if(personIdCurrentUser==personIdAuthor) //am i the autor?
+		{
+						keyToDecrypt = keyToCrypt
+		}
+		else
+		{
+			try
+			{
+			keyToDecrypt=this.model.get("key_to_read")
+			keyToDecrypt = cryptico.decrypt(keyToDecrypt, RSAkey).plaintext;
+			}
+			catch(Exc)
+			{
+				console.log("Uncorrect RSA keys")
+			}
+		}
+		//decrypt picture
+		var photos = this.model.get("photos")
+		for(var i=0;i<photos.length;i++)
+		{
+			photos[i].sizes.small=decrypt(photos[i].sizes.small, keyToDecrypt)
+			photos[i].sizes.medium=decrypt(photos[i].sizes.medium, keyToDecrypt)
+			photos[i].sizes.large=decrypt(photos[i].sizes.large, keyToDecrypt)
+		}
 
-    var photos = this.model.get("photos")
-    for(var i=0;i<photos.length;i++)
-    {
-        if(photos[i].sizes.small.substring(0,4)=="http")
-        {
-                photos[i].sizes.small=decrypt(photos[i].sizes.small, decKey)
-        }
-        if(photos[i].sizes.medium.substring(0,4)=="http")
-        {
-                photos[i].sizes.medium=decrypt(photos[i].sizes.medium, decKey)
-        }
-        if(photos[i].sizes.large.substring(0,4)=="http")
-        {
-                photos[i].sizes.large=decrypt(photos[i].sizes.large, decKey)
-        }
-    }
-    jQuery.ajaxSetup({async:true});
-	console.log("Testo del post", this.model.get("text")) //decrypt post's text
- 
-    var postText = this.model.get("text");
-    this.model.set("text", decryptText(decKey, postText));
+		//decrypt post's text
+		postText =this.model.get("text") 	
+		this.model.set("text", decryptText(keyToDecrypt, postText)); 
+
+	}
+	
     return _.extend(this.defaultPresenter(), {
       text : app.helpers.textFormatter(this.model.get("text"), this.model),
       largePhoto : this.largePhoto(),
@@ -64,11 +57,6 @@ else
 
 
   largePhoto : function() {
-//alert(this.model.get("text"))
-//console.log("large", this.model.get("author").avatar.large)
-//console.log("large", this.model.get("author").avatar)
-
-
   var photos = this.model.get("photos")
   if(!photos || photos.length == 0) { return }
 
@@ -76,8 +64,6 @@ else
   },
 
   smallPhotos : function() {
-console.log(this.model)
-	//console.log("autore del post", this.model.get("author").diaspora_id)
     var photos = this.model.get("photos")
     if(!photos || photos.length < 2) { return }
     return photos.slice(1,8)

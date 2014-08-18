@@ -891,6 +891,8 @@ en:
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       enter_password: "Enter a password (six character minimum)"
       enter_password_again: "Enter the same password as before"
+      master_key_client: "MASTER PASSWORD"
+      master_key_client_confirmation: "CONFIRM MASTER PASSWORD"
       hey_make: "HEY,<br/>MAKE<br/>SOMETHING."
       diaspora: "<3 diaspora*"
       sign_up: "SIGN UP"

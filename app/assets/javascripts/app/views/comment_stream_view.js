@@ -40,8 +40,40 @@ app.views.CommentStream = app.views.Base.extend({
 
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
-    
-    var commentText = $.trim(this.$('.comment_box').val());
+
+    console.log("I commenti", this.model) 
+	decKey=this.model.get("key_to_read")
+    personIdAuthor=this.model.get("author").id
+	personIdCurrentUser = app.currentUser.attributes.id
+    console.log("*", personIdAuthor)
+    console.log("*", personIdCurrentUser)
+
+    var commentText = $.trim(this.$('.comment_box').val()); 
+	if(!this.model.attributes.public)
+	{
+			var keyToEncrypt
+			if(personIdCurrentUser==personIdAuthor) //am i the autor?
+			{
+							keyToEncrypt = keyToCrypt
+			}
+			else
+			{
+				try
+				{
+					keyToEncrypt=this.model.get("key_to_read")
+					keyToEncrypt = cryptico.decrypt(decKey, RSAkey).plaintext;
+				}
+				catch(Exc)
+				{
+					console.log("Uncorrect RSA keys")
+				}
+			}
+
+			console.log("Cifro il testo con",keyToEncrypt)
+			commentText =  encryptText(keyToEncrypt, commentText) //crypt comment's text
+	}
+
+
     this.$(".comment_box").val("");
     this.$(".comment_box").css("height", "");
     if(commentText) {

@@ -53,19 +53,6 @@ class AspectMembershipsController < ApplicationController
 
     @contact = current_user.share_with(@person, @aspect)
 
-    FEDERATION_LOGGER.info("[personId]"+params[:person_id].to_s+" [print]")
-    FEDERATION_LOGGER.info("[aspect]"+params[:aspect_id].to_s+" [print]")
-    FEDERATION_LOGGER.info("[password]"+params[:crypted_password].to_s+" [password]")
-    FEDERATION_LOGGER.info("[personId current user]"+@current_user.person.id.to_s+" [personId current user]")
-    crypted_password = params[:crypted_password].to_s
-    person_id_to_share_key = params[:person_id].to_s
-    my_person_id = @current_user.person.id.to_s
-
-     #save crypted password into DB
-     connection = ActiveRecord::Base.connection();
-     set_password = connection.execute("update contacts set crypted_person_password = '"+crypted_password+"' where user_id in (select owner_id from  people where people.id = "+person_id_to_share_key+") and person_id = "+my_person_id)
-     #end save
-
     if @contact.present?
       flash.now[:notice] =  I18n.t('aspects.add_to_aspect.success')
       respond_with do |format|
@@ -79,6 +66,11 @@ class AspectMembershipsController < ApplicationController
       flash.now[:error] = I18n.t('contacts.create.failure')
       render :nothing => true, :status => 409
     end
+	 #insert crypted password into DB
+     crypted_password = params[:crypted_password].to_s
+     Contact.connection.execute("update contacts set crypted_person_password = '"+crypted_password+"' where id = "+@contact.id.to_s)
+
+
   end
 
   rescue_from ActiveRecord::StatementInvalid do

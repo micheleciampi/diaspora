@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140721171409) do
+ActiveRecord::Schema.define(:version => 20140730092212) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -497,7 +497,6 @@ ActiveRecord::Schema.define(:version => 20140721171409) do
     t.text     "hidden_shareables"
     t.datetime "reset_password_sent_at"
     t.string   "master_key"
-    t.string   "public_key"
     t.string   "private_key"
   end
 

@@ -20,13 +20,28 @@ app.views.Base = Backbone.View.extend({
 
   defaultPresenter : function(){
     var modelJson = this.model && this.model.attributes ? _.clone(this.model.attributes) : {}
+
+
+
+
 	cryptedKey=app.currentUser.attributes.master_key
 	personIdUtente=app.currentUser.attributes.id
 
 	console.log("---->Person id dell'utente", personIdUtente)
 	console.log("---->Chiave cifrata", cryptedKey)
 	master_key=localStorage.getItem('master_key')
-	keyToCrypt = CryptoJS.AES.decrypt(cryptedKey, master_key).toString(CryptoJS.enc.Base64);
+	try
+	{
+		keyToCrypt = CryptoJS.AES.decrypt(cryptedKey, master_key).toString(CryptoJS.enc.Base64);
+        }
+	catch(Exc)
+	{
+		logOut();	
+	}
+	if(keyToCrypt =="")
+	{
+		logOut();
+	}
 	console.log("---->Master key", master_key)
 	console.log("---->Chiave per cifrare i dati", keyToCrypt)
 

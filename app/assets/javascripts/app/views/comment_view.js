@@ -15,9 +15,40 @@ app.views.Comment = app.views.Content.extend({
   },
 
   presenter : function() {
+	var isPublicComment = this.model.attributes.parent.public
+	var textComment
+	if(!isPublicComment)
+	{
+		
+		personIdCurrentUser = app.currentUser.attributes.id
+		personIdAuthor=this.model.attributes.parent.author.id
+		var keyToDecrypt
+		if(personIdCurrentUser==personIdAuthor) //am i the comment's autor?
+		{
+						keyToDecrypt = keyToCrypt
+		}
+		else
+		{
+			try
+			{
+			keyToDecrypt = this.model.attributes.parent.key_to_read
+			keyToDecrypt = cryptico.decrypt(keyToDecrypt, RSAkey).plaintext;
+			}
+			catch(Exc)
+			{
+				console.log("Uncorrect RSA keys")
+			}
+		}
+		textComment = decryptText(keyToDecrypt, this.model.get("text"))
+	}
+	else
+	{
+		textComment = this.model.get("text")
+	}
+
     return _.extend(this.defaultPresenter(), {
       canRemove: this.canRemove(),
-      text : app.helpers.textFormatter(this.model.get("text"), this.model)
+      text : app.helpers.textFormatter(textComment, this.model)
     })
   },
 
